@@ -1,0 +1,532 @@
+Create a premium, creative, modern fintech landing page for **RePay for Business**, a Saudi payment technology company.
+
+The website should feel like a combination of:
+
+* Modern fintech
+* Premium SaaS
+* Open Banking
+* Financial infrastructure
+* Minimal but highly creative product design
+
+Avoid the typical generic fintech landing page look. The design should feel **innovative, confident, clean, interactive, and premium**, with strong visual hierarchy and subtle motion.
+
+## BRAND
+
+Brand: **RePay**
+
+Primary color:
+`#008CFF`
+
+Secondary / dark color:
+`#2D323A`
+
+Arabic font:
+**Rubik**
+
+English font:
+**Nunito**
+
+Use Arabic as the primary language for the page, but make the design fully bilingual-ready.
+
+Use generous whitespace, large typography, rounded cards, subtle gradients, glass-like surfaces where appropriate, and modern fintech UI elements.
+
+Do NOT overuse gradients, shadows, or decorative elements.
+
+---
+
+# HEADER / NAVIGATION
+
+Do NOT create a traditional top navigation bar.
+
+Instead, create a very minimal floating header:
+
+* RePay logo centered horizontally at the very top
+* Language switcher in the top corner
+* No navigation links
+* No menu
+* No large header background
+
+The logo should feel visually dominant and centered.
+
+The language selector should be minimal and elegant:
+`العربية | English`
+
+Keep the header extremely clean.
+
+---
+
+# HERO SECTION
+
+The hero is the most important part of the website.
+
+Use a full-screen or near-full-screen hero section.
+
+At the top of the hero content, place a small eyebrow label:
+
+**RePay for Business**
+
+Then the main headline:
+
+**مباشرة من حسابك البنكي**
+
+Supporting headline:
+
+**طريقة جديدة للدفع مباشرة من الحساب البنكي، بدون تعقيد**
+
+Small supporting text:
+
+**مدعومة بتقنيات المصرفية المفتوحة**
+
+The phrase "مدعومة بتقنيات المصرفية المفتوحة" should be visually smaller and lighter than the main headline.
+
+CTA buttons:
+
+Primary:
+**تسجيل**
+
+Secondary:
+**تجربة الديمو**
+
+The primary CTA should use `#008CFF`.
+
+The secondary CTA should have a subtle outline or dark text treatment.
+
+---
+
+# HERO VISUAL
+
+Do NOT use a generic stock image.
+
+Create a highly creative visual representation of a bank payment flow.
+
+Possible concept:
+
+A large abstract digital banking/payment interface showing:
+
+Customer
+↓
+RePay
+↓
+Bank Account
+↓
+Payment Confirmed
+
+Use floating UI cards, payment confirmation states, bank-style interfaces, transaction notifications, subtle animated particles, and flowing lines.
+
+The visual should communicate:
+
+**Money moving directly from a bank account to a merchant.**
+
+The visual should feel like a real fintech product, not an illustration.
+
+Use subtle motion:
+
+* Floating cards
+* Moving transaction line
+* Payment confirmation animation
+* Soft glow around the payment flow
+* Micro-interactions
+
+Keep the animation sophisticated and restrained.
+
+---
+
+# FEATURES SECTION
+
+Create a premium feature section immediately after the hero.
+
+Section title:
+
+**كل ما تحتاجه لتجربة دفع أفضل**
+
+Present the following four features as large interactive cards.
+
+## Feature 1
+
+Title:
+
+**متكامل مع كل المدفوعات**
+
+Description:
+
+**امنح عملاءك طريقة دفع مباشرة من حساباتهم البنكية، بتجربة سريعة وبسيطة**
+
+Visual idea:
+Show multiple payment methods converging into one unified checkout experience.
+
+---
+
+## Feature 2
+
+Title:
+
+**تكاليف أقل**
+
+Description:
+
+**قلّل اعتمادك على البطاقات، واستفد من الدفع المباشر من الحسابات البنكية لتقليل تكاليف معالجة المدفوعات**
+
+Visual idea:
+Show a simplified cost comparison or declining processing-cost visualization.
+
+---
+
+## Feature 3
+
+Title:
+
+**تسوية فورية**
+
+Description:
+
+**احصل على تأكيد فوري للمدفوعات، مع وصول أسرع للأموال وتقليل فترات الانتظار والتسوية.**
+
+Visual idea:
+Transaction status changing from:
+
+Processing
+
+to
+
+Confirmed
+
+with a real-time animation.
+
+---
+
+## Feature 4
+
+Title:
+
+**إدارة أسهل للمدفوعات**
+
+Description:
+
+**تابع عمليات الدفع والتسوية بسهولة من خلال إشعارات فورية ومطابقة تلقائية للعمليات، لتقليل العمل اليدوي.**
+
+Visual idea:
+Modern merchant dashboard showing:
+
+* Successful payments
+* Settlement status
+* Transaction matching
+* Notifications
+
+---
+
+# PRODUCT EXPERIENCE SECTION
+
+Create a visually impressive product storytelling section.
+
+Headline:
+
+**من الدفع إلى التأكيد في ثوانٍ**
+
+Description:
+
+**شاهد كيف يدفع عملاؤك مباشرة من حساباتهم البنكية، بتجربة بسيطة ومألوفة، دون إدخال بيانات البطاقة أو خطوات معقدة.**
+
+Then create a horizontal or vertical animated payment journey:
+
+### 01
+
+**اختر RePay**
+
+### 02
+
+**راجع تفاصيل الدفع**
+
+### 03
+
+**أكّد من تطبيق البنك**
+
+### 04
+
+**تم الدفع**
+
+Make each step visually connected.
+
+The interface should resemble an actual checkout flow.
+
+Include a large interactive demo/video area below the steps.
+
+Label:
+
+**ديمو تجربة الدفع**
+
+The video/demo container should have a premium rounded design with subtle glow and depth.
+
+If video is unavailable, create an interactive prototype-style animation instead.
+
+---
+
+# BNPM SECTION
+
+Create a visually distinct section for the BNPM product.
+
+Title:
+
+**BNPM — Buy Now, Pay Maybe**
+
+Main statement:
+
+**ادفع الآن، وقد تسترد 100% من قيمة مشترياتك.**
+
+Supporting copy:
+
+**تجربة دفع ومكافآت تحفّز عملاءك على الشراء والعودة لمتجرك، مع فرصة لاسترداد قيمة مشترياتهم بالكامل**
+
+Important:
+
+Do NOT make BNPM look like traditional Buy Now Pay Later.
+
+Do NOT use installment/payment-debt visuals.
+
+Instead, visually communicate:
+
+Purchase
+→
+Reward opportunity
+→
+Potential 100% purchase value recovery
+
+Make the section exciting and highly visual.
+
+Use a large animated purchase card showing:
+
+**Purchase**
+SAR 250
+
+Then an animated reward state:
+
+**100% Value Recovered**
+
+The visual should feel like a loyalty/reward mechanic integrated into the payment experience.
+
+Use the RePay blue color prominently here.
+
+---
+
+# FAQ SECTION
+
+Create a clean, modern FAQ section using expandable accordion cards.
+
+Section title:
+
+**الأسئلة الشائعة**
+
+Include these questions:
+
+### 01
+
+**ما هي RePay؟**
+
+Answer should explain that RePay provides businesses with a new payment method that allows customers to pay directly from their bank accounts using Open Banking technology.
+
+### 02
+
+**كيف يتم الدفع من الحساب البنكي مباشرة؟**
+
+Explain the flow simply:
+Customer selects RePay → reviews payment details → authenticates through their bank → payment is confirmed.
+
+### 03
+
+**هل بياناتي آمنة؟**
+
+Explain that RePay uses Open Banking technology and secure authentication through the customer's bank, without requiring the customer to share their banking login credentials with RePay.
+
+### 04
+
+**هل توجد طرق دفع أخرى غير الحساب البنكي؟**
+
+Explain that RePay can work alongside existing payment methods and does not require merchants to replace their current payment options.
+
+### 05
+
+**هل RePay يستبدل بوابة الدفع الحالية؟**
+
+Explain that RePay is designed as an additional payment method that can complement existing payment methods and payment infrastructure.
+
+---
+
+# FINAL CTA
+
+Create a strong final conversion section.
+
+Headline:
+
+**أضف طريقة دفع جديدة إلى متجرك**
+
+Supporting text:
+
+**امنح عملاءك تجربة دفع أسرع، أبسط، ومباشرة من حساباتهم البنكية.**
+
+Buttons:
+
+**تسجيل**
+
+**تجربة الديمو**
+
+Make this section visually striking with a large RePay payment visualization in the background.
+
+---
+
+# FOOTER
+
+Minimal footer.
+
+Include:
+
+RePay logo
+
+Links:
+
+* الرئيسية
+* حلول الدفع
+* BNPM
+* الأسئلة الشائعة
+* تواصل معنا
+* الخصوصية
+* الشروط والأحكام
+
+Language:
+العربية | English
+
+Copyright:
+**© 2026 RePay. All rights reserved.**
+
+---
+
+# DESIGN SYSTEM
+
+Use:
+
+Primary:
+`#008CFF`
+
+Dark:
+`#2D323A`
+
+Background:
+Mostly white / very light neutral backgrounds.
+
+Typography:
+Arabic → **Rubik**
+English → **Nunito**
+
+Typography hierarchy should be bold and editorial.
+
+Hero headline should be very large.
+
+Use:
+
+* Large headlines
+* Short paragraphs
+* Rounded cards
+* 16–28px corner radius
+* Soft shadows
+* Subtle borders
+* Minimal gradients
+* Large whitespace
+
+Avoid:
+
+* Generic corporate stock photography
+* Generic blue illustrations
+* Excessive icons
+* Excessive rounded pills
+* Traditional navbar
+* Busy layouts
+* Too many colors
+* Cheap-looking gradients
+
+---
+
+# CREATIVE DIRECTION
+
+The main visual idea of the entire website should be:
+
+**"Money moves directly from the bank to the business."**
+
+Build the visual language around:
+
+Bank account
+→
+RePay
+→
+Merchant
+→
+Instant confirmation
+
+Use this concept repeatedly through animations, diagrams, UI cards, and transitions.
+
+The website should feel like a **real fintech product website**, similar in quality to leading global fintech/SaaS companies.
+
+Think:
+
+**Stripe-level clarity + modern Open Banking aesthetics + premium Saudi fintech identity.**
+
+---
+
+# ANIMATION
+
+Use subtle premium motion throughout the website:
+
+* Hero payment flow animation
+* Floating transaction cards
+* Scroll-triggered feature animations
+* Number/count animations
+* Payment confirmation animation
+* FAQ accordion transitions
+* Button hover states
+* Smooth page transitions
+* Subtle background movement
+
+Animations should never distract from the content.
+
+Prioritize performance and responsiveness.
+
+---
+
+# RESPONSIVE DESIGN
+
+The website must be fully responsive.
+
+Desktop:
+Large cinematic layouts with strong visual hierarchy.
+
+Tablet:
+Maintain spacious layouts while reducing visual complexity.
+
+Mobile:
+
+* Centered logo
+* Minimal language selector
+* Large readable hero
+* Stacked CTAs
+* Vertical payment flow
+* Feature cards stacked vertically
+* BNPM section optimized for mobile
+* FAQ accordion full width
+
+Ensure Arabic RTL is implemented correctly.
+
+---
+
+# IMPORTANT
+
+Do not simply place the provided text into generic sections.
+
+**Design the experience around the story of a payment moving directly from a customer's bank account to a merchant.**
+
+The website should immediately communicate:
+
+**New payment method.**
+**Direct from bank.**
+**Fast.**
+**Simple.**
+**Secure.**
+**Lower payment costs.**
+
+The final result should look like a polished fintech startup website ready for a real product launch, not a template or AI-generated landing page.

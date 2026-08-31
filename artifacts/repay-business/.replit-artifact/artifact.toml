@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "RePay for Business"
+description = "An Arabic-first premium fintech landing page for RePay, showing how businesses can accept direct bank-account payments through Open Banking, with interactive product storytelling and a BNPM rewards experience."
+version = "1.0.0"
+id = "artifacts/repay-business"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19754
+
+[services.development]
+run = "pnpm --filter @workspace/repay-business run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/repay-business", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/repay-business/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19754"
+BASE_PATH = "/"

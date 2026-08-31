@@ -1,0 +1,1 @@
+- [Connectors SDK in workspace](connectors-sdk-workspace.md) — connector server code uses the root-scoped SDK; avoid duplicate workspace installs.
