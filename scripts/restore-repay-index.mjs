@@ -16,6 +16,7 @@ const encodedParts = await Promise.all(
 );
 const html = encodedParts
   .map((encoded) => Buffer.from(encoded.trim(), "base64"))
-  .join("");
+  .join("")
+  .replace('href="/favicon.svg"', 'href="/favicon.png"');
 
 await writeFile(outputPath, html);
