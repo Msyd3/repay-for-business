@@ -17,6 +17,12 @@ const encodedParts = await Promise.all(
 const html = encodedParts
   .map((encoded) => Buffer.from(encoded.trim(), "base64"))
   .join("")
+  .replace("<title>RePay for Business</title>", "<title>RePay</title>")
+  .replaceAll('content="RePay for Business"', 'content="RePay"')
+  .replaceAll(
+    'content="RePay for Business — built on Replit. Update this description to reflect the app."',
+    'content="وسيلة جديدة للدفع مباشرة من الحساب البنكي، بدون تعقيد"',
+  )
   .replace(
     'type="image/svg+xml" href="/favicon.svg"',
     'type="image/png" href="/favicon.png"',
