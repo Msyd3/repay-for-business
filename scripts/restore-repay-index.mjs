@@ -75,6 +75,15 @@ const html = encodedParts
   .replace(
     'type="image/svg+xml" href="/favicon.svg"',
     'type="image/png" href="/favicon.png"',
+  )
+  .replace(
+    '    <div id="root"></div>',
+    `    <div id="root">
+      <main dir="rtl" style="min-height:100vh;background:#20233c;color:#fff;padding:8rem 1.5rem;text-align:center;font-family:Arial,sans-serif">
+        <h1 style="font-size:clamp(2.5rem,8vw,5rem);margin:0">مباشرة من حسابك البنكي</h1>
+        <p style="font-size:1.125rem;line-height:2;margin:2rem auto 0;max-width:42rem">${seoDescription}</p>
+      </main>
+    </div>`,
   );
 
 await writeFile(outputPath, html);
