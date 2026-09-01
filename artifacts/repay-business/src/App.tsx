@@ -174,7 +174,7 @@ const faqData = {
 
 function Logo() {
   return <div className="flex items-center" dir="ltr" aria-label="RePay">
-    <img src={repayLogo} alt="RePay for Business" className="h-10 w-10 shrink-0 object-contain" />
+    <img src={repayLogo} alt="RePay" className="h-10 w-10 shrink-0 object-contain" />
   </div>;
 }
 
