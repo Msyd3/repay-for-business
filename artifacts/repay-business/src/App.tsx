@@ -72,9 +72,9 @@ const copy = {
     nameLabel: 'الاسم',
     companyLabel: 'اسم الشركة',
     mobileLabel: 'رقم الجوال',
-    send: 'إرسال الطلب',
-    sending: 'جارٍ الإرسال...',
-    sendError: 'تعذر إرسال الطلب حالياً. حاول مرة أخرى.',
+     send: 'إرسال الطلب',
+     sending: 'جارٍ فتح البريد...',
+     sendError: 'تعذر فتح البريد الإلكتروني. حاول مرة أخرى.',
     cookieNotice: 'نستخدم ملفات الارتباط لتحسين تجربتك على موقع RePay.',
     cookieAccept: 'موافق',
     footer: 'الدفع المباشر، كما يجب أن يكون.',
@@ -134,9 +134,9 @@ const copy = {
     nameLabel: 'Name',
     companyLabel: 'Company name',
     mobileLabel: 'Mobile number',
-    send: 'Send request',
-    sending: 'Sending...',
-    sendError: 'We could not send your request right now. Please try again.',
+     send: 'Send request',
+     sending: 'Opening email...',
+     sendError: 'We could not open your email app. Please try again.',
     cookieNotice: 'We use cookies to improve your experience on the RePay website.',
     cookieAccept: 'Accept',
     footer: 'Direct payment, as it should be.',
@@ -291,26 +291,34 @@ function DemoModal({ lang, close }: { lang: Lang; close: () => void }) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [form, setForm] = useState({ name: '', company: '', email: '', mobile: '' });
 
-  async function submit(event: FormEvent<HTMLFormElement>) {
+  function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus('submitting');
-    try {
-      const response = await fetch(`${import.meta.env.BASE_URL}api/leads`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      if (!response.ok) throw new Error(`Lead submission failed: ${response.status}`);
-      setStatus('success');
-    } catch {
-      setStatus('error');
-    }
+    const subject = lang === 'ar'
+      ? `طلب تواصل جديد من ${form.company || form.name}`
+      : `New contact request from ${form.company || form.name}`;
+    const body = lang === 'ar'
+      ? [
+          `الاسم: ${form.name}`,
+          `الشركة: ${form.company}`,
+          `البريد الإلكتروني: ${form.email}`,
+          `رقم الجوال: ${form.mobile}`,
+        ].join('\n')
+      : [
+          `Name: ${form.name}`,
+          `Company: ${form.company}`,
+          `Email: ${form.email}`,
+          `Mobile: ${form.mobile}`,
+        ].join('\n');
+
+    window.location.href = `mailto:malsayed9@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setStatus('success');
   }
 
   return <div className="fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-[#20233c]/75 p-5 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={t.request}>
     <div className="relative my-auto w-full max-w-[560px] rounded-[1.75rem] bg-white p-7 text-[#20233c] shadow-2xl md:p-10" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       <button data-testid="button-close-demo" onClick={close} className="absolute left-6 top-6 rounded-full p-2 text-[#737487] transition-colors hover:bg-[#eaf5ff] hover:text-[#20233c]" aria-label={lang === 'ar' ? 'إغلاق' : 'Close'}><X size={18} /></button>
-      {status === 'success' ? <div className="py-12 text-center"><div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#e4f1ed] text-[#248e88]"><Check size={28} /></div><h3 className="display-font mt-6 text-3xl font-semibold">{lang === 'ar' ? 'وصلنا طلبك.' : 'Request received.'}</h3><p className="mt-3 text-[#666778]">{lang === 'ar' ? 'سيتواصل معك فريق RePay قريباً.' : 'The RePay team will be in touch shortly.'}</p></div> : <>
+       {status === 'success' ? <div className="py-12 text-center"><div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#e4f1ed] text-[#248e88]"><Check size={28} /></div><h3 className="display-font mt-6 text-3xl font-semibold">{lang === 'ar' ? 'تم تجهيز رسالة البريد.' : 'Your email is ready.'}</h3><p className="mt-3 text-[#666778]">{lang === 'ar' ? 'اضغط «إرسال» من تطبيق البريد لإكمال طلبك.' : 'Press “Send” in your email app to complete your request.'}</p></div> : <>
         <h3 className="display-font max-w-[390px] text-4xl font-semibold leading-tight tracking-[-.06em]">{t.request}</h3>
         <p className="mt-4 text-sm leading-7 text-[#666778]">{t.finalSub}</p>
         <form className="mt-7 space-y-4" onSubmit={submit}>
