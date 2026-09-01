@@ -227,7 +227,7 @@ function PaymentVisual({ lang }: { lang: Lang }) {
     <div className="absolute left-[38%] top-[46%] h-2 w-2 rounded-full bg-[#63d7d1] shadow-[0_0_0_7px_rgba(99,215,209,.12)]" />
     <div className="absolute right-0 top-16 w-[330px] rounded-3xl border border-white/15 bg-[#2b2e4b]/90 p-5 shadow-2xl backdrop-blur-xl md:right-4">
       <div className="flex items-center justify-between text-xs text-white/45"><span className="display-font">REPAY / CHECKOUT</span><span className="h-2 w-2 rounded-full bg-[#63d7d1]" /></div>
-      <div className="mt-12"><div className="text-xs text-white/45">{t.amount}</div><div className="display-font mt-1 text-4xl tracking-[-.06em]">1,250.00 <img src={sarIcon} alt="SAR" className="inline-block h-5 w-4 align-[-.15em] opacity-50 invert" /></div></div>
+      <div className="mt-12"><div className="text-xs text-white/45">{t.amount}</div><div className="display-font mt-1 text-4xl tracking-[-.06em]">1,200 <img src={sarIcon} alt="SAR" className="inline-block h-5 w-4 align-[-.15em] opacity-50 invert" /></div></div>
       <div className="mt-7 rounded-2xl bg-white p-4 text-[#20233c]">
         <div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-[#e5f1ed] text-[#248e88]"><Banknote size={18} /></span><div><div className="text-xs font-semibold">{t.bankPayment}</div><div className="mt-0.5 text-[10px] text-[#737487]">{t.manualEntry}</div></div><ArrowUpLeft className="mr-auto h-4 w-4" /></div>
       </div>
