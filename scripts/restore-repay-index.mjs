@@ -14,7 +14,7 @@ const partNames = [
 const encodedParts = await Promise.all(
   partNames.map((name) => readFile(path.join(templateDir, name), "utf8")),
 );
-const seoDescription = "وسيلة جديدة للدفع مباشرة من الحساب البنكي، بدون تعقيد";
+const seoDescription = "محفظة رقمية تجمع حساباتك البنكية والرقمية وطرق دفعك المفضلة في مكان واحد، لتجربة دفع أسرع وأسهل";
 const seoJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [

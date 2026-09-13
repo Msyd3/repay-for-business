@@ -3,7 +3,7 @@ import { appendContactLead, type ContactLead } from "../lib/googleSheets";
 
 const router: IRouter = Router();
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const mobilePattern = /^[+0-9٠-٩۰-۹\s()-]{7,30}$/;
+const mobilePattern = /^05[0-9]{8}$/;
 
 function clean(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
