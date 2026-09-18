@@ -6,7 +6,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 import {
-  ArrowUpLeft, Banknote, Check, Minus, Plus, ShieldCheck, Sparkles, X
+  ArrowUpLeft, Banknote, Check, Globe2, MessageCircle, Minus, Plus, ShieldCheck, ShoppingBag, Smartphone, Sparkles, X
 } from 'lucide-react';
 import repayLogo from '@assets/image_1788211428352.png';
 import paymentImage from '@assets/Group_239_1789259468437.png';
@@ -31,9 +31,9 @@ const copy = {
     start: 'تسجيل',
     eyebrow: 'Live',
     hero: 'تجربة مالية بلا حدود',
-    heroSub: 'بيدك تختار الطريقة الأنسب لك. ادفع، حوّل واستقبل بشكل بسيط وسهل',
-    paymentTitle: 'كل طرق الدفع في تجربة واحدة',
-    paymentSub: 'اختر الطريقة الأنسب لك في كل مرة. ادفع مباشرة من حسابك البنكي، أو استخدم إحدى طرق الدفع المحفوظة لديك، بتجربة سريعة وبسيطة',
+    heroSub: 'بيدك تختار الطريقة الأنسب لك. دفع، تحويل سريع من أي مكان، وفي أي مكان',
+    paymentTitle: 'من أي مكان وفي أي مكان',
+    paymentSub: 'نجعل الدفع والتحويل جزءًا من أي تجربة، لتدفع وتستقبل مباشرة عبر التطبيقات، المواقع الإلكترونية، المتاجر وبرامج التواصل التي تستخدمها كل يوم',
     seeHow: 'تجربة الديمو',
     talk: 'تواصل معنا',
     trusted: 'كل ما تحتاجه لتجربة دفع أفضل',
@@ -61,8 +61,8 @@ const copy = {
      featureSub: 'تابع عمليات الدفع والتسوية بسهولة من خلال إشعارات فورية ومطابقة تلقائية للعمليات، لتقليل العمل اليدوي',
     feature1: 'اربط حساباتك',
     feature1Sub: 'حساباتك البنكية والرقمية بسهولة في مكان واحد',
-    feature2: 'احفظ طرق دفعك',
-    feature2Sub: 'احفظ طريقة الدفع المفضلة وخليها جاهزة وقت ما تحتاجها',
+    feature2: 'احفظ طريقتك',
+    feature2Sub: 'استخدم الحساب أو الطريقة الأنسب لك للدفع او التحويل السريع',
     feature3: 'تابع عملياتك',
     feature3Sub: 'مدفوعاتك وتحويلاتك وكل عملياتك بشكل واضح وبسيط',
     bnpmEyebrow: 'Soon',
@@ -71,14 +71,12 @@ const copy = {
     points: 'نقطة مكتسبة',
     earned: 'رصيد المكافآت',
     learn: 'اكتشف BNPM',
-    demoTitle: 'من ضغطة إلى تأكيد خلال ثوانٍ',
-    demoSub: 'اضغط RePay عند الدفع، واختر الطريقة الأنسب لك من حساباتك وطرق الدفع المحفوظة، وأكمل العملية بخطوات بسيطة وسريعة',
     demoButtonTitle: 'جرّب الديمو',
     faqEyebrow: 'أسئلة واضحة',
     faqTitle: 'الأسئلة الشائعة',
     finalEyebrow: 'REPAY FOR BUSINESS',
-    finalTitle: 'تجربة أفضل لعملائك. ونمو أكبر لأعمالك',
-     finalSub: 'أضف RePay إلى تجربة الدفع، وسهّل على عملائك إكمال مشترياتهم باستخدام حساباتهم وطرق الدفع المفضلة، بخطوات أقل وتجربة أسرع',
+     finalTitle: 'تجربة أفضل. ونمو أكبر',
+      finalSub: 'أضف RePay إلى أي تجربة، واجعل الدفع متاحًا مباشرة داخل أي تطبيق أو منصة',
     request: 'تواصل معنا',
     nameLabel: 'الاسم',
     companyLabel: 'اسم الشركة',
@@ -98,9 +96,9 @@ const copy = {
     start: 'Get started',
     eyebrow: 'Live',
      hero: 'A Financial Experience Without Limits',
-      heroSub: 'Choose what works best for you. Pay, send, and receive — simple and easy',
-     paymentTitle: 'Every Way to Pay. One Experience.',
-     paymentSub: 'Choose what works best for you every time. Pay directly from your bank account or use one of your saved payment methods — all through a fast and simple experience',
+      heroSub: 'Choose what works for you. Pay and transfer seamlessly, from anywhere to anywhere.',
+     paymentTitle: 'From Anywhere, To Anywhere',
+     paymentSub: 'We make payments and transfers part of any experience, so you can pay and receive money directly through the apps, websites, stores, and social platforms you use every day',
     seeHow: 'See how it works',
      talk: 'Contact Us',
     trusted: 'Built for a market that values time',
@@ -128,8 +126,8 @@ const copy = {
      featureSub: 'Quiet tools in the background. A clear impact on every sale',
      feature1: 'Connect Your Accounts',
      feature1Sub: 'Bring your bank and digital accounts together in one place',
-     feature2: 'Save Your Payment Methods',
-      feature2Sub: 'Save your preferred payment method and have it ready whenever you need it',
+     feature2: 'Save Your Way',
+      feature2Sub: 'Choose your preferred account or payment method for faster payments and transfers',
      feature3: 'Track Your Activity',
       feature3Sub: 'Keep your payments, transfers, and activity clear and easy to follow',
     bnpmEyebrow: 'Soon',
@@ -138,14 +136,12 @@ const copy = {
     points: 'Point earned',
     earned: 'Reward balance',
     learn: 'Discover BNPM',
-     demoTitle: 'From Tap to Confirmed in Seconds',
-     demoSub: 'Tap RePay at checkout, choose what works best for you from your connected accounts and saved payment methods, and complete your payment in just a few simple steps.',
      demoButtonTitle: 'Try the Demo',
     faqEyebrow: 'Clear answers',
       faqTitle: 'Frequently Asked Questions',
     finalEyebrow: 'REPAY FOR BUSINESS',
      finalTitle: 'A Better Experience for Your Users. More Growth for Your Business.',
-      finalSub: 'Add RePay to your checkout and make it easier for your customers to complete purchases using their accounts and preferred payment methods — with fewer steps and a faster experience',
+       finalSub: 'Add RePay and make payments available directly within any app or platform',
      request: 'Contact Us',
      nameLabel: 'Name',
      companyLabel: 'Company Name',
@@ -164,18 +160,18 @@ const copy = {
 
 const faqData = {
   ar: [
-     ['ما هي RePay؟', 'RePay محفظة تجمع حساباتك البنكية والرقمية وطرق دفعك المفضلة في مكان واحد بشكل بسيط وسهل'],
+    ['ما هي RePay؟', 'محفظة رقمية تجمع حساباتك البنكية والرقمية، وتندمج مع التطبيقات والمواقع والمنصات، لتدفع وتحول من أي مكان بسهولة'],
      ['هل بيانات العملاء آمنة؟', 'نعم، نطبق إجراءات أمنية لحماية بيانات التجار والعملاء، ولا يتم استخدامها إلا لتقديم خدمات RePay والالتزام بالأنظمة ذات العلاقة'],
      ['ما هي طرق الدفع المدعومة؟', 'تتيح RePay طرق دفع متعددة، بما فيها طرق الدفع المدعومة والمحفوظة، بالإضافة إلى الدفع المباشر من الحساب البنكي (Pay by Bank)، وستتوفر الخدمة أولًا لعدد محدود من المستخدمين بعد استكمال الموافقات التنظيمية والاعتمادات اللازمة من الجهات المختصة'],
      ['هل لديكم واجهات برمجية (API)؟', 'نعم، توفر RePay واجهات برمجية (API) للتكامل مع الأنظمة التي تدعم ذلك'],
-     ['هل أقدر أحوّل وأستقبل عبر RePay مباشرة؟', 'نعمل على إطلاق محفظة RePay للأفراد، والتي تربط حساباتك البنكية والرقمية تحت اسم مستخدم واحد، لتجعل التحويل والاستقبال بينك وبين أصدقائك أبسط وأسهل'],
+    ['كيف تعمل RePay مع التطبيقات والمنصات؟', 'تعمل RePay كطبقة مالية يمكن دمجها مع التطبيقات والمواقع والمتاجر ومنصات التواصل، لتصبح خدمات الدفع والتحويل جزءًا من التجربة نفسها دون الحاجة للانتقال إلى تطبيق منفصل'],
   ],
   en: [
-      ['What is RePay?', 'RePay is a wallet that brings your bank accounts, digital accounts, and preferred payment methods together in one place — simple and easy'],
+     ['What is RePay?', 'One wallet for everywhere. Connect your bank and digital accounts once, pay and transfer across the apps, websites, and social platforms you already use'],
      ['Is customer data secure?', 'Yes. We apply security measures to protect merchant and customer data. Data is used only to provide RePay services and comply with applicable regulatory requirements'],
       ['Which payment methods are supported?', 'RePay supports multiple payment methods, including supported and saved payment methods, as well as Pay by Bank. Pay by Bank will initially be available to a limited number of users following the completion of the required regulatory approvals and authorizations'],
       ['Do you provide APIs?', 'Yes. RePay provides APIs for integration with supported systems and platforms'],
-      ['Can I send and receive money directly through RePay?', 'We’re working on launching the RePay wallet for individuals, bringing your bank and digital accounts together under one username to make sending and receiving money between friends simpler and easier'],
+     ['How does RePay work with apps and platforms?', 'RePay works as a financial layer that integrates with apps, websites, stores, and social platforms, making payments and transfers part of the experience without the need to switch to a separate app'],
   ],
 } as const;
 
@@ -218,10 +214,13 @@ function Hero({ lang, setLang, onDemo }: { lang: Lang; setLang: (lang: Lang) => 
         <p className="reveal reveal-1 mx-auto mt-8 max-w-[600px] text-lg leading-8 text-white">{t.heroSub}</p>
         <div className="reveal reveal-2 mt-9 flex flex-wrap items-center justify-center gap-3">
           <Button testId="button-hero-demo" variant="aqua" showArrow={false} onClick={onDemo} className="!bg-[#008CFF] !px-8 !py-4 !text-base !text-white hover:!bg-[#007de6]">{t.talk}</Button>
+          <a data-testid="link-hero-live-demo" href="http://demo.repay.sa" target="_blank" rel="noreferrer" dir="ltr" className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/25 bg-white/10 px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/15">
+            {t.demoButtonTitle}
+          </a>
         </div>
       </div>
     </div>
-    <div className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-[10px] uppercase tracking-[.25em] text-white/40 md:flex"><span className="h-8 w-px bg-white/30" />scroll to explore</div>
+    <div className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 items-center gap-2 whitespace-nowrap text-[10px] uppercase tracking-[.25em] text-white/40 md:flex"><span className="h-8 w-px bg-white/30" />scroll to explore</div>
   </section>;
 }
 
@@ -233,8 +232,20 @@ function PaymentGatewaySection({ lang }: { lang: Lang }) {
         <h2 className="display-font max-w-[560px] text-4xl font-semibold leading-[1.08] tracking-[-.06em] text-[#20233c] md:text-6xl">{t.paymentTitle}</h2>
         <p className="mt-6 max-w-[560px] text-lg leading-8 text-[#54686a]">{t.paymentSub}</p>
       </div>
-      <div>
-        <img src={paymentImage} alt="طرق الدفع المتاحة" className="mx-auto block w-full max-w-[626px]" />
+      <div className="relative mx-auto w-full max-w-[680px] px-8 py-10 sm:px-14 sm:py-14">
+        <div aria-hidden="true" className="absolute left-[7%] top-1 grid h-10 w-10 -rotate-6 place-items-center rounded-2xl border border-[#008CFF]/15 bg-[#eef7ff] text-[#008CFF] shadow-[0_12px_30px_rgba(32,35,60,.10)] sm:h-12 sm:w-12">
+          <MessageCircle size={19} />
+        </div>
+        <div aria-hidden="true" className="absolute right-0 top-[18%] grid h-11 w-11 rotate-6 place-items-center rounded-2xl border border-[#20233c]/10 bg-white text-[#20233c] shadow-[0_12px_30px_rgba(32,35,60,.12)] sm:h-13 sm:w-13">
+          <ShoppingBag size={20} />
+        </div>
+        <div aria-hidden="true" className="absolute bottom-[12%] left-0 grid h-11 w-11 rotate-3 place-items-center rounded-2xl border border-[#63d7d1]/25 bg-[#effcfb] text-[#248e88] shadow-[0_12px_30px_rgba(32,35,60,.10)] sm:h-13 sm:w-13">
+          <Globe2 size={20} />
+        </div>
+        <div aria-hidden="true" className="absolute bottom-0 right-[10%] grid h-10 w-10 -rotate-6 place-items-center rounded-2xl border border-[#008CFF]/15 bg-[#20233c] text-white shadow-[0_12px_30px_rgba(32,35,60,.16)] sm:h-12 sm:w-12">
+          <Smartphone size={18} />
+        </div>
+        <img src={paymentImage} alt="طرق الدفع المتاحة عبر التطبيقات والمواقع والمتاجر" className="relative z-10 mx-auto block w-full max-w-[626px]" />
       </div>
     </div>
   </section>;
@@ -259,21 +270,6 @@ function RouletteVisual() {
     <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2"><div className="h-0 w-0 border-x-[11px] border-t-[24px] border-x-transparent border-t-[#f59e0b]" /></div>
     <div className="absolute left-1/2 top-1/2 z-10 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-4 border-[#20233c] bg-black shadow-[0_8px_24px_rgba(0,0,0,.35)]"><img src={repayLogo} alt="RePay" className="h-10 w-10 object-contain" /></div>
   </div>;
-}
-
-function LiveDemo({ lang }: { lang: Lang }) {
-  const t = copy[lang];
-  return <section id="live-demo" className="relative overflow-hidden bg-white px-5 py-24 text-[#20233c] sm:py-28 lg:px-8 lg:py-36" style={{ backgroundImage: 'radial-gradient(circle at 8% 20%, rgba(0,140,255,.08), transparent 28%), radial-gradient(circle at 92% 58%, rgba(99,215,209,.07), transparent 30%)' }} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-      <div className="relative mx-auto max-w-[1240px]">
-        <div className="max-w-[820px]">
-          <h2 className="display-font text-[clamp(2.7rem,6vw,5rem)] font-semibold leading-[.98] tracking-[-.07em]">{t.demoTitle}</h2>
-          <p className="mt-7 max-w-[610px] text-base leading-8 text-[#666778] sm:text-lg">{t.demoSub}</p>
-        </div>
-         <a data-testid="link-live-demo" href="http://demo.repay.sa" target="_blank" rel="noreferrer" dir="ltr" className="mt-9 inline-flex h-12 min-w-[160px] items-center justify-center rounded-full bg-[#20233c] px-7 py-2 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#2a2d49] sm:h-14 sm:min-w-[210px]">
-           <span className="text-sm font-bold sm:text-base">{t.demoButtonTitle}</span>
-        </a>
-      </div>
-  </section>;
 }
 
 function FAQ({ lang }: { lang: Lang }) {
@@ -390,7 +386,7 @@ function CookieNotice({ lang }: { lang: Lang }) {
 
 function Home() {
   const [lang, setLang] = useState<Lang>('ar'); const [demo, setDemo] = useState(false);
-  return <main lang={lang} className="noise" dir={lang === 'ar' ? 'rtl' : 'ltr'}><Hero lang={lang} setLang={setLang} onDemo={() => setDemo(true)} /><PaymentGatewaySection lang={lang} /><Features lang={lang} /><Bnpm lang={lang} /><LiveDemo lang={lang} /><FAQ lang={lang} /><Footer lang={lang} onDemo={() => setDemo(true)} />{demo && <DemoModal lang={lang} close={() => setDemo(false)} />}<CookieNotice lang={lang} /></main>;
+  return <main lang={lang} className="noise" dir={lang === 'ar' ? 'rtl' : 'ltr'}><Hero lang={lang} setLang={setLang} onDemo={() => setDemo(true)} /><PaymentGatewaySection lang={lang} /><Features lang={lang} /><Bnpm lang={lang} /><FAQ lang={lang} /><Footer lang={lang} onDemo={() => setDemo(true)} />{demo && <DemoModal lang={lang} close={() => setDemo(false)} />}<CookieNotice lang={lang} /></main>;
 }
 
 function Router() {
