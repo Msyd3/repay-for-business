@@ -65,12 +65,6 @@ const copy = {
     feature2Sub: 'استخدم الحساب أو الطريقة الأنسب لك للدفع او التحويل السريع',
     feature3: 'تابع عملياتك',
     feature3Sub: 'مدفوعاتك وتحويلاتك وكل عملياتك بشكل واضح وبسيط',
-    bnpmEyebrow: 'Soon',
-    bnpmTitle: 'ادفع الآن، وقد تسترد 100% من قيمة عمليتك',
-    bnpmSub: 'تجربة جديدة تجمع بين الدفع والمكافآت، مع فرصة لاسترداد ما يصل إلى 100% من قيمة عمليتك',
-    points: 'نقطة مكتسبة',
-    earned: 'رصيد المكافآت',
-    learn: 'اكتشف BNPM',
     demoButtonTitle: 'جرّب الديمو',
     faqEyebrow: 'أسئلة واضحة',
     faqTitle: 'الأسئلة الشائعة',
@@ -130,12 +124,6 @@ const copy = {
       feature2Sub: 'Choose your preferred account or payment method for faster payments and transfers',
      feature3: 'Track Your Activity',
       feature3Sub: 'Keep your payments, transfers, and activity clear and easy to follow',
-    bnpmEyebrow: 'Soon',
-     bnpmTitle: 'Pay Now, and You Could Get 100% Back',
-     bnpmSub: 'A new experience that brings payments and rewards together, with a chance to get back up to 100% of your transaction value',
-    points: 'Point earned',
-    earned: 'Reward balance',
-    learn: 'Discover BNPM',
      demoButtonTitle: 'Try the Demo',
     faqEyebrow: 'Clear answers',
       faqTitle: 'Frequently Asked Questions',
@@ -257,21 +245,6 @@ function Features({ lang }: { lang: Lang }) {
   return <section id="features" className="bg-white px-5 py-20 sm:py-24 lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto max-w-[1240px]"><div><h2 className="display-font max-w-[600px] text-[clamp(2rem,5vw,3.75rem)] font-semibold leading-[1.1] tracking-[-.06em] text-[#20233c]">{t.featureTitle}</h2></div><div className="mt-12 grid gap-4 sm:mt-16 md:grid-cols-3">{features.map(({ icon: Icon, title, sub }) => <div key={title} className="group min-h-[300px] rounded-[2rem] bg-[#f4f4f6] p-6 transition-transform duration-500 hover:-translate-y-2 sm:p-7"><div className="flex items-start justify-between"><div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#e5f1ff] text-[#008CFF]"><Icon size={21} /></div></div><h3 className="mt-20 text-lg font-bold leading-7 text-[#20233c] sm:mt-24 sm:text-xl">{title}</h3><p className="mt-3 text-sm font-medium leading-6 text-[#666778]">{sub}</p></div>)}</div></div></section>;
 }
 
-function Bnpm({ lang }: { lang: Lang }) {
-  const t = copy[lang];
-  return <section className="overflow-hidden bg-[#20233c] px-5 py-28 text-[#f8f3e8] lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto grid max-w-[1240px] items-center gap-10 lg:grid-cols-2"><RouletteVisual /><div className="max-w-[760px]"><div className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[#008CFF]/30 bg-[#008CFF]/10 px-3 py-2 text-[10px] font-semibold uppercase tracking-[.16em] text-[#008CFF]"><span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#008CFF] opacity-70" /><span className="relative inline-flex h-2 w-2 rounded-full bg-[#008CFF]" /></span><span>{t.bnpmEyebrow}</span></div><h2 className="display-font mt-5 max-w-[680px] text-4xl font-semibold leading-[1.08] tracking-[-.06em] md:text-6xl">{t.bnpmTitle}</h2><p className="mt-6 max-w-[560px] leading-8 text-white/60">{t.bnpmSub}</p></div></div></section>;
-}
-
-function RouletteVisual() {
-  return <div className="relative mx-auto flex h-[360px] w-full max-w-[480px] items-center justify-center" dir="ltr">
-    <div className="relative h-[290px] w-[290px] animate-[spin_12s_linear_infinite] rounded-full border-[10px] border-white/80 bg-[conic-gradient(from_-15deg,#ef4444_0deg_60deg,#7c5cb5_60deg_120deg,#10b981_120deg_180deg,#8bd3f7_180deg_240deg,#f59e0b_240deg_300deg,#0f8b8b_300deg_360deg)] shadow-[0_0_55px_rgba(16,185,129,.22)]">
-      <div className="absolute inset-7 rounded-full border border-white/30 bg-[#20233c]/90 shadow-inner" />
-    </div>
-    <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2"><div className="h-0 w-0 border-x-[11px] border-t-[24px] border-x-transparent border-t-[#f59e0b]" /></div>
-    <div className="absolute left-1/2 top-1/2 z-10 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-4 border-[#20233c] bg-black shadow-[0_8px_24px_rgba(0,0,0,.35)]"><img src={repayLogo} alt="RePay" className="h-10 w-10 object-contain" /></div>
-  </div>;
-}
-
 function FAQ({ lang }: { lang: Lang }) {
   const t = copy[lang]; const [open, setOpen] = useState<number | null>(0);
   return <section id="faq" className="bg-white px-5 py-28 lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto grid max-w-[1000px] gap-14 md:grid-cols-[.75fr_1.25fr]"><div><h2 className="display-font text-4xl font-semibold leading-[1.1] tracking-[-.06em] text-[#20233c] md:text-5xl">{t.faqTitle}</h2></div><div className="border-t border-[#20233c]/15">{faqData[lang].map(([q, a], i) => <div key={q} className="border-b border-[#20233c]/15"><button data-testid={`button-faq-${i}`} onClick={() => setOpen(open === i ? null : i)} className="flex w-full items-center justify-between gap-4 py-6 text-right text-base font-semibold text-[#20233c]"><span>{q}</span>{open === i ? <Minus size={18} className="shrink-0 text-[#248e88]" /> : <Plus size={18} className="shrink-0 text-[#248e88]" />}</button><div className={`grid transition-[grid-template-rows] duration-300 ${open === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}><p className="overflow-hidden pb-0 text-sm leading-7 text-[#666778]">{open === i && a}</p></div></div>)}</div></div></section>;
@@ -386,7 +359,7 @@ function CookieNotice({ lang }: { lang: Lang }) {
 
 function Home() {
   const [lang, setLang] = useState<Lang>('ar'); const [demo, setDemo] = useState(false);
-  return <main lang={lang} className="noise" dir={lang === 'ar' ? 'rtl' : 'ltr'}><Hero lang={lang} setLang={setLang} onDemo={() => setDemo(true)} /><PaymentGatewaySection lang={lang} /><Features lang={lang} /><Bnpm lang={lang} /><FAQ lang={lang} /><Footer lang={lang} onDemo={() => setDemo(true)} />{demo && <DemoModal lang={lang} close={() => setDemo(false)} />}<CookieNotice lang={lang} /></main>;
+  return <main lang={lang} className="noise" dir={lang === 'ar' ? 'rtl' : 'ltr'}><Hero lang={lang} setLang={setLang} onDemo={() => setDemo(true)} /><PaymentGatewaySection lang={lang} /><Features lang={lang} /><FAQ lang={lang} /><Footer lang={lang} onDemo={() => setDemo(true)} />{demo && <DemoModal lang={lang} close={() => setDemo(false)} />}<CookieNotice lang={lang} /></main>;
 }
 
 function Router() {
