@@ -78,7 +78,7 @@ const html = encodedParts
   )
   .replace(
     'type="image/svg+xml" href="/favicon.svg"',
-    'type="image/png" href="/favicon.png"',
+    'type="image/png" href="/favicon.png?v=1790461700426"',
   )
   .replace(
     '    <div id="root"></div>',

@@ -145,14 +145,12 @@ const faqData = {
   ar: [
     ['ما هي RePay؟', 'محفظة رقمية تنفّذ عنك عملياتك، وتتيح لك الدفع والتحويل السريع من أي مكان'],
      ['هل بيانات العملاء آمنة؟', 'نعم، نطبق إجراءات أمنية لحماية بيانات التجار والعملاء، ولا يتم استخدامها إلا لتقديم خدمات RePay والالتزام بالأنظمة ذات العلاقة. بيانات الدفع والبطاقات محفوظة ومشفّرة، ولا يتم عرضها للوكيل أثناء تنفيذ العمليات'],
-     ['ما هي طرق الدفع المدعومة؟', 'تتيح RePay طرق دفع متعددة، بما فيها طرق الدفع المدعومة والمحفوظة، بالإضافة إلى الدفع المباشر من الحساب البنكي (Pay by Bank)، وستتوفر الخدمة أولًا لعدد محدود من المستخدمين بعد استكمال الموافقات التنظيمية والاعتمادات اللازمة من الجهات المختصة'],
      ['هل لديكم واجهات برمجية (API)؟', 'نعم، توفر RePay واجهات برمجية (API) للتكامل مع الأنظمة التي تدعم ذلك'],
     ['تأكيد العملية', 'يتم عرض تفاصيل كل عملية لك قبل تنفيذها، ولا تتم إلا بعد موافقتك'],
   ],
   en: [
      ['What is RePay?', 'A digital wallet that acts on your behalf, with payments and fast transfers from anywhere'],
      ['Is user data secure?', 'Yes. We apply security measures to protect merchant and user data, and it is only used to provide RePay services and comply with applicable regulations. Payment and card details are stored securely and encrypted, and are never exposed to the agent while transactions are being carried out'],
-      ['Which payment methods are supported?', 'RePay supports multiple payment methods, including supported and saved payment methods, as well as Pay by Bank. Pay by Bank will initially be available to a limited number of users following the completion of the required regulatory approvals and authorizations'],
       ['Do you provide APIs?', 'Yes. RePay provides APIs for integration with supported systems and platforms'],
      ['Transaction Confirmation', 'You review the details of every transaction before it is completed, and nothing is processed without your approval'],
   ],
