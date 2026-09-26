@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 import repayLogo from '@assets/image_1788211428352.png';
 import paymentImage from '@assets/Group_239_1789259468437.png';
-import privacyPolicyPdf from '@assets/سياسة_الخصوصية_ري_باي_المالية_1788215944892.pdf';
 
 const queryClient = new QueryClient();
 
@@ -30,10 +29,10 @@ const copy = {
     nav: ['حلول الدفع', 'كيف تعمل', 'المزايا', 'الأسئلة الشائعة'],
     start: 'تسجيل',
     eyebrow: 'Live',
-    hero: 'تجربة مالية بلا حدود',
-    heroSub: 'بيدك تختار الطريقة الأنسب لك. دفع، تحويل سريع من أي مكان، وفي أي مكان',
+    hero: 'محفظة رقمية بلا حدود',
+    heroSub: 'دفع، تحويل سريع، أو خلّه ينفّذ عنك. من أي مكان، وبموافقتك',
     paymentTitle: 'من أي مكان وفي أي مكان',
-    paymentSub: 'نجعل الدفع والتحويل جزءًا من أي تجربة، لتدفع وتستقبل مباشرة عبر التطبيقات، المواقع الإلكترونية، المتاجر وبرامج التواصل التي تستخدمها كل يوم',
+    paymentSub: 'نجعل العمليات المالية جزءًا من أي تجربة — داخل التطبيقات، المواقع والمنصات التي تستخدمها كل يوم',
     seeHow: 'تجربة الديمو',
     talk: 'تواصل معنا',
     trusted: 'كل ما تحتاجه لتجربة دفع أفضل',
@@ -57,7 +56,7 @@ const copy = {
     bankPayment: 'الدفع من حسابك البنكي',
     manualEntry: 'بدون إدخال يدوي',
     featureEyebrow: 'حلول دفع مصممة لأعمالك',
-    featureTitle: 'كل حساباتك البنكية والرقمية في مكان واحد',
+    featureTitle: 'كل الطرق في محفظة وحدة',
      featureSub: 'تابع عمليات الدفع والتسوية بسهولة من خلال إشعارات فورية ومطابقة تلقائية للعمليات، لتقليل العمل اليدوي',
     feature1: 'اربط حساباتك',
     feature1Sub: 'حساباتك البنكية والرقمية بسهولة في مكان واحد',
@@ -68,8 +67,6 @@ const copy = {
     demoButtonTitle: 'جرّب الديمو',
     faqEyebrow: 'أسئلة واضحة',
     faqTitle: 'الأسئلة الشائعة',
-    finalEyebrow: 'REPAY FOR BUSINESS',
-     finalTitle: 'تجربة أفضل. ونمو أكبر',
       finalSub: 'أضف RePay إلى أي تجربة، واجعل الدفع متاحًا مباشرة داخل أي تطبيق أو منصة',
     request: 'تواصل معنا',
     nameLabel: 'الاسم',
@@ -89,10 +86,10 @@ const copy = {
     nav: ['Why RePay', 'How it works', 'Features', 'FAQ'],
     start: 'Get started',
     eyebrow: 'Live',
-     hero: 'A Financial Experience Without Limits',
-      heroSub: 'Choose what works for you. Pay and transfer seamlessly, from anywhere to anywhere.',
+     hero: 'Digital Wallet Without Limits',
+      heroSub: 'Pay, transfer, or let it act on your behalf — from anywhere, with your approval',
      paymentTitle: 'From Anywhere, To Anywhere',
-     paymentSub: 'We make payments and transfers part of any experience, so you can pay and receive money directly through the apps, websites, stores, and social platforms you use every day',
+     paymentSub: 'We make financial transactions part of any experience — across the apps, websites, and platforms you use every day',
     seeHow: 'See how it works',
      talk: 'Contact Us',
     trusted: 'Built for a market that values time',
@@ -116,7 +113,7 @@ const copy = {
     bankPayment: 'Payment from your bank account',
     manualEntry: 'No manual entry',
     featureEyebrow: 'More than a payment method',
-      featureTitle: 'All Your Bank and Digital Accounts in One Place',
+      featureTitle: 'Every Way, in One Wallet',
      featureSub: 'Quiet tools in the background. A clear impact on every sale',
      feature1: 'Connect Your Accounts',
      feature1Sub: 'Bring your bank and digital accounts together in one place',
@@ -127,8 +124,6 @@ const copy = {
      demoButtonTitle: 'Try the Demo',
     faqEyebrow: 'Clear answers',
       faqTitle: 'Frequently Asked Questions',
-    finalEyebrow: 'REPAY FOR BUSINESS',
-     finalTitle: 'A Better Experience for Your Users. More Growth for Your Business.',
        finalSub: 'Add RePay and make payments available directly within any app or platform',
      request: 'Contact Us',
      nameLabel: 'Name',
@@ -141,25 +136,25 @@ const copy = {
      cookieNotice: 'We use cookies to improve your experience on the RePay website',
     cookieAccept: 'Accept',
      footer: 'Direct payment, as it should be',
-     rights: '© 2026 RePay Financial, all rights reserved',
+     rights: '© 2026 RePay Financials, all rights reserved',
     privacyPolicy: 'Privacy Policy',
   },
 } as const;
 
 const faqData = {
   ar: [
-    ['ما هي RePay؟', 'محفظة رقمية تجمع حساباتك البنكية والرقمية، وتندمج مع التطبيقات والمواقع والمنصات، لتدفع وتحول من أي مكان بسهولة'],
-     ['هل بيانات العملاء آمنة؟', 'نعم، نطبق إجراءات أمنية لحماية بيانات التجار والعملاء، ولا يتم استخدامها إلا لتقديم خدمات RePay والالتزام بالأنظمة ذات العلاقة'],
+    ['ما هي RePay؟', 'محفظة رقمية تنفّذ عنك عملياتك، وتتيح لك الدفع والتحويل السريع من أي مكان'],
+     ['هل بيانات العملاء آمنة؟', 'نعم، نطبق إجراءات أمنية لحماية بيانات التجار والعملاء، ولا يتم استخدامها إلا لتقديم خدمات RePay والالتزام بالأنظمة ذات العلاقة. بيانات الدفع والبطاقات محفوظة ومشفّرة، ولا يتم عرضها للوكيل أثناء تنفيذ العمليات'],
      ['ما هي طرق الدفع المدعومة؟', 'تتيح RePay طرق دفع متعددة، بما فيها طرق الدفع المدعومة والمحفوظة، بالإضافة إلى الدفع المباشر من الحساب البنكي (Pay by Bank)، وستتوفر الخدمة أولًا لعدد محدود من المستخدمين بعد استكمال الموافقات التنظيمية والاعتمادات اللازمة من الجهات المختصة'],
      ['هل لديكم واجهات برمجية (API)؟', 'نعم، توفر RePay واجهات برمجية (API) للتكامل مع الأنظمة التي تدعم ذلك'],
-    ['كيف تعمل RePay مع التطبيقات والمنصات؟', 'تعمل RePay كطبقة مالية يمكن دمجها مع التطبيقات والمواقع والمتاجر ومنصات التواصل، لتصبح خدمات الدفع والتحويل جزءًا من التجربة نفسها دون الحاجة للانتقال إلى تطبيق منفصل'],
+    ['تأكيد العملية', 'يتم عرض تفاصيل كل عملية لك قبل تنفيذها، ولا تتم إلا بعد موافقتك'],
   ],
   en: [
-     ['What is RePay?', 'One wallet for everywhere. Connect your bank and digital accounts once, pay and transfer across the apps, websites, and social platforms you already use'],
-     ['Is customer data secure?', 'Yes. We apply security measures to protect merchant and customer data. Data is used only to provide RePay services and comply with applicable regulatory requirements'],
+     ['What is RePay?', 'A digital wallet that acts on your behalf, with payments and fast transfers from anywhere'],
+     ['Is user data secure?', 'Yes. We apply security measures to protect merchant and user data, and it is only used to provide RePay services and comply with applicable regulations. Payment and card details are stored securely and encrypted, and are never exposed to the agent while transactions are being carried out'],
       ['Which payment methods are supported?', 'RePay supports multiple payment methods, including supported and saved payment methods, as well as Pay by Bank. Pay by Bank will initially be available to a limited number of users following the completion of the required regulatory approvals and authorizations'],
       ['Do you provide APIs?', 'Yes. RePay provides APIs for integration with supported systems and platforms'],
-     ['How does RePay work with apps and platforms?', 'RePay works as a financial layer that integrates with apps, websites, stores, and social platforms, making payments and transfers part of the experience without the need to switch to a separate app'],
+     ['Transaction Confirmation', 'You review the details of every transaction before it is completed, and nothing is processed without your approval'],
   ],
 } as const;
 
@@ -247,12 +242,27 @@ function Features({ lang }: { lang: Lang }) {
 
 function FAQ({ lang }: { lang: Lang }) {
   const t = copy[lang]; const [open, setOpen] = useState<number | null>(0);
-  return <section id="faq" className="bg-white px-5 py-28 lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto grid max-w-[1000px] gap-14 md:grid-cols-[.75fr_1.25fr]"><div><h2 className="display-font text-4xl font-semibold leading-[1.1] tracking-[-.06em] text-[#20233c] md:text-5xl">{t.faqTitle}</h2></div><div className="border-t border-[#20233c]/15">{faqData[lang].map(([q, a], i) => <div key={q} className="border-b border-[#20233c]/15"><button data-testid={`button-faq-${i}`} onClick={() => setOpen(open === i ? null : i)} className="flex w-full items-center justify-between gap-4 py-6 text-right text-base font-semibold text-[#20233c]"><span>{q}</span>{open === i ? <Minus size={18} className="shrink-0 text-[#248e88]" /> : <Plus size={18} className="shrink-0 text-[#248e88]" />}</button><div className={`grid transition-[grid-template-rows] duration-300 ${open === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}><p className="overflow-hidden pb-0 text-sm leading-7 text-[#666778]">{open === i && a}</p></div></div>)}</div></div></section>;
+  return <section id="faq" className="bg-white px-5 py-28 lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="mx-auto grid max-w-[1000px] gap-14 md:grid-cols-[.75fr_1.25fr]">
+      <div><h2 className="display-font text-4xl font-semibold leading-[1.1] tracking-[-.06em] text-[#20233c] md:text-5xl">{t.faqTitle}</h2></div>
+      <div className="border-t border-[#20233c]/15">
+        {faqData[lang].map(([q, a], i) => <div key={q} className="border-b border-[#20233c]/15">
+          <button data-testid={`button-faq-${i}`} onClick={() => setOpen(open === i ? null : i)} className="flex w-full items-center justify-between gap-4 py-6 text-start text-base font-semibold text-[#20233c]">
+            <span className="min-w-0 flex-1">{q}</span>
+            {open === i ? <Minus size={18} className="shrink-0 text-[#248e88]" /> : <Plus size={18} className="shrink-0 text-[#248e88]" />}
+          </button>
+          <div className={`grid transition-[grid-template-rows] duration-300 ${open === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+            <p className="overflow-hidden pb-0 text-sm leading-7 text-[#666778]">{open === i && a}</p>
+          </div>
+        </div>)}
+      </div>
+    </div>
+  </section>;
 }
 
-function Footer({ lang, onDemo }: { lang: Lang; onDemo: () => void }) {
+function Footer({ lang }: { lang: Lang }) {
   const t = copy[lang];
-  return <><section className="bg-[#008CFF] px-5 py-20 text-center text-white sm:py-24 lg:px-8 lg:py-32" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto flex max-w-[1240px] flex-col items-center justify-between gap-8"><div className="flex w-full flex-col items-center"><div className="mb-7 inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/30 bg-white/10 px-3 py-2 text-[10px] font-semibold uppercase tracking-[.16em] text-white"><span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-70" /><span className="relative inline-flex h-2 w-2 rounded-full bg-white" /></span><span>{t.finalEyebrow}</span></div><h2 className="display-font max-w-[680px] text-[clamp(2.5rem,7vw,4.5rem)] font-semibold leading-[1] tracking-[-.07em]">{t.finalTitle}</h2><p className="mt-5 max-w-[620px] text-sm leading-7 text-white/90 sm:mt-6 sm:text-base">{t.finalSub}</p></div><Button testId="button-final-demo" onClick={onDemo} showArrow={false} variant="white" className="w-full min-w-[220px] !bg-[#f4f4f6] !px-10 !py-4 !text-base !text-[#20233c] hover:!bg-white sm:w-auto">{t.request}</Button></div></section><footer className="bg-[#20233c] px-5 py-8 text-[#f8f3e8] lg:px-8" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto flex max-w-[1240px] flex-col items-center justify-center gap-3"><p className="text-center text-xs text-white/50">{t.rights}</p><a href={privacyPolicyPdf} target="_blank" rel="noreferrer" className="text-center text-xs text-white/50 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white">{t.privacyPolicy}</a></div></footer></>;
+  return <footer className="bg-[#20233c] px-5 py-8 text-[#f8f3e8] lg:px-8" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto flex max-w-[1240px] flex-col items-center justify-center gap-3"><p className="text-center text-xs text-white/50">{t.rights}</p><a href={`${import.meta.env.BASE_URL}privacy-policy/document.pdf`} target="_blank" rel="noopener noreferrer" className="text-center text-xs text-white/50 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white">{t.privacyPolicy}</a></div></footer>;
 }
 
 function normalizeMobileDigits(value: string): string {
@@ -359,7 +369,7 @@ function CookieNotice({ lang }: { lang: Lang }) {
 
 function Home() {
   const [lang, setLang] = useState<Lang>('ar'); const [demo, setDemo] = useState(false);
-  return <main lang={lang} className="noise" dir={lang === 'ar' ? 'rtl' : 'ltr'}><Hero lang={lang} setLang={setLang} onDemo={() => setDemo(true)} /><PaymentGatewaySection lang={lang} /><Features lang={lang} /><FAQ lang={lang} /><Footer lang={lang} onDemo={() => setDemo(true)} />{demo && <DemoModal lang={lang} close={() => setDemo(false)} />}<CookieNotice lang={lang} /></main>;
+  return <main lang={lang} className="noise" dir={lang === 'ar' ? 'rtl' : 'ltr'}><Hero lang={lang} setLang={setLang} onDemo={() => setDemo(true)} /><PaymentGatewaySection lang={lang} /><Features lang={lang} /><FAQ lang={lang} /><Footer lang={lang} />{demo && <DemoModal lang={lang} close={() => setDemo(false)} />}<CookieNotice lang={lang} /></main>;
 }
 
 function Router() {

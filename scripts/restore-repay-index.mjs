@@ -14,7 +14,8 @@ const partNames = [
 const encodedParts = await Promise.all(
   partNames.map((name) => readFile(path.join(templateDir, name), "utf8")),
 );
-const seoDescription = "محفظة رقمية تجمع حساباتك البنكية والرقمية وطرق دفعك المفضلة في مكان واحد، لتجربة دفع أسرع وأسهل";
+const seoDescription = "A wallet built to act";
+const fallbackDescription = "محفظة رقمية تجمع حساباتك البنكية والرقمية وطرق دفعك المفضلة في مكان واحد، لتجربة دفع أسرع وأسهل";
 const seoJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
@@ -84,7 +85,7 @@ const html = encodedParts
     `    <div id="root">
       <main dir="rtl" style="min-height:100vh;background:#20233c;color:#fff;padding:8rem 1.5rem;text-align:center;font-family:Arial,sans-serif">
         <h1 style="font-size:clamp(2.5rem,8vw,5rem);margin:0">مباشرة من حسابك البنكي</h1>
-        <p style="font-size:1.125rem;line-height:2;margin:2rem auto 0;max-width:42rem">${seoDescription}</p>
+        <p style="font-size:1.125rem;line-height:2;margin:2rem auto 0;max-width:42rem">${fallbackDescription}</p>
       </main>
     </div>`,
   );
