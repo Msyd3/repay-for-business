@@ -56,7 +56,7 @@ const copy = {
     bankPayment: 'الدفع من حسابك البنكي',
     manualEntry: 'بدون إدخال يدوي',
     featureEyebrow: 'حلول دفع مصممة لأعمالك',
-    featureTitle: 'كل الطرق في محفظة وحدة',
+    featureTitle: 'كل الطرق في محفظة واحدة',
      featureSub: 'تابع عمليات الدفع والتسوية بسهولة من خلال إشعارات فورية ومطابقة تلقائية للعمليات، لتقليل العمل اليدوي',
     feature1: 'اربط حساباتك',
     feature1Sub: 'حساباتك البنكية والرقمية بسهولة في مكان واحد',
@@ -67,7 +67,6 @@ const copy = {
     demoButtonTitle: 'جرّب الديمو',
     faqEyebrow: 'أسئلة واضحة',
     faqTitle: 'الأسئلة الشائعة',
-      finalSub: 'أضف RePay إلى أي تجربة، واجعل الدفع متاحًا مباشرة داخل أي تطبيق أو منصة',
     request: 'تواصل معنا',
     nameLabel: 'الاسم',
     companyLabel: 'اسم الشركة',
@@ -124,7 +123,6 @@ const copy = {
      demoButtonTitle: 'Try the Demo',
     faqEyebrow: 'Clear answers',
       faqTitle: 'Frequently Asked Questions',
-       finalSub: 'Add RePay and make payments available directly within any app or platform',
      request: 'Contact Us',
      nameLabel: 'Name',
      companyLabel: 'Company Name',
@@ -322,7 +320,6 @@ function DemoModal({ lang, close }: { lang: Lang; close: () => void }) {
       <button data-testid="button-close-demo" onClick={close} className={`absolute top-6 rounded-full p-2 text-[#737487] transition-colors hover:bg-[#eaf5ff] hover:text-[#20233c] ${lang === 'ar' ? 'left-6' : 'right-6'}`} aria-label={lang === 'ar' ? 'إغلاق' : 'Close'}><X size={18} /></button>
        {status === 'success' ? <div className="py-12 text-center"><div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#e4f1ed] text-[#248e88]"><Check size={28} /></div><h3 className="display-font mt-6 text-3xl font-semibold">{lang === 'ar' ? 'وصلنا طلبك' : 'Request received'}</h3><p className="mt-3 text-[#666778]">{lang === 'ar' ? 'سيتواصل معك فريق RePay قريباً' : 'RePay team will be in touch shortly'}</p></div> : <>
         <h3 className="display-font max-w-[390px] text-4xl font-semibold leading-tight tracking-[-.06em]">{t.request}</h3>
-        <p className="mt-4 text-sm leading-7 text-[#666778]">{t.finalSub}</p>
         <form className="mt-7 space-y-4" onSubmit={submit}>
           <div className="grid gap-4 sm:grid-cols-2">
             <ContactField label={t.nameLabel} value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} testId="input-demo-name" autoComplete="name" maxLength={120} />
