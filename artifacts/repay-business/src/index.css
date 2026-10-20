@@ -124,3 +124,5 @@ main[dir="rtl"], main[dir="rtl"] .display-font { font-family: 'Rubik', sans-seri
 [class*="bg-[#248e88]"] { background-color: #008CFF !important; }
 [class*="text-[#248e88]"] { color: #008CFF !important; }
 [class*="border-[#248e88]"] { border-color: #008CFF !important; }
+
+main[lang="en"] .hero-title {font-size:clamp(2rem,7.2vw,5.5rem);line-height:1.08;letter-spacing:-.045em;overflow-wrap:break-word;text-wrap:balance;max-width:760px;}

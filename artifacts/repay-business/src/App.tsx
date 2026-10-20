@@ -1,4 +1,5 @@
-import { type ChangeEvent, type FormEvent, type ReactNode, useEffect, useState } from 'react';
+import { RiOpenaiFill, RiGrokAiFill } from 'react-icons/ri';
+import { type ChangeEvent, type FormEvent, type ReactNode, useEffect, useRef, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
@@ -9,7 +10,9 @@ import {
   ArrowUpLeft, Banknote, Check, Globe2, MessageCircle, Minus, Plus, ShieldCheck, ShoppingBag, Smartphone, Sparkles, X
 } from 'lucide-react';
 import repayLogo from '@assets/image_1788211428352.png';
-import paymentImage from '@assets/Group_239_1789259468437.png';
+import transferNotification from '@assets/whatsapp-transfer-notification-v2.png';
+import { SiWhatsapp, SiClaude, SiGooglegemini, SiDeepseek, SiPerplexity } from 'react-icons/si';
+import whatsappPhone from '@assets/whatsapp-phone-private.png';
 
 const queryClient = new QueryClient();
 
@@ -28,7 +31,7 @@ const copy = {
   ar: {
     nav: ['حلول الدفع', 'كيف تعمل', 'المزايا', 'الأسئلة الشائعة'],
     start: 'تسجيل',
-    eyebrow: 'Live',
+    eyebrow: 'Beta Launch',
     hero: 'محفظة رقمية بلا حدود',
     heroSub: 'دفع، تحويل سريع، أو خلّه ينفّذ عنك. من أي مكان، وبموافقتك',
     paymentTitle: 'من أي مكان وفي أي مكان',
@@ -56,12 +59,12 @@ const copy = {
     bankPayment: 'الدفع من حسابك البنكي',
     manualEntry: 'بدون إدخال يدوي',
     featureEyebrow: 'حلول دفع مصممة لأعمالك',
-    featureTitle: 'كل الطرق في محفظة واحدة',
+    featureTitle: 'محفظتك بطريقتك',
      featureSub: 'تابع عمليات الدفع والتسوية بسهولة من خلال إشعارات فورية ومطابقة تلقائية للعمليات، لتقليل العمل اليدوي',
-    feature1: 'اربط حساباتك',
-    feature1Sub: 'حساباتك البنكية والرقمية بسهولة في مكان واحد',
-    feature2: 'احفظ طريقتك',
-    feature2Sub: 'استخدم الحساب أو الطريقة الأنسب لك للدفع او التحويل السريع',
+    feature1: 'اسم مستخدم واحد لكل حساباتك',
+    feature1Sub: 'اربط بياناتك وحساباتك باسم مستخدم واحد، بدون مشاركة بيانات خاصة',
+    feature2: 'حوّل، وهو يختار وين يستقبل',
+    feature2Sub: 'حوّل من ري باي، والمستفيد يختار الحساب اللي يناسبه',
     feature3: 'تابع عملياتك',
     feature3Sub: 'مدفوعاتك وتحويلاتك وكل عملياتك بشكل واضح وبسيط',
     demoButtonTitle: 'جرّب الديمو',
@@ -84,9 +87,9 @@ const copy = {
   en: {
     nav: ['Why RePay', 'How it works', 'Features', 'FAQ'],
     start: 'Get started',
-    eyebrow: 'Live',
-     hero: 'Digital Wallet Without Limits',
-      heroSub: 'Pay, transfer, or let it act on your behalf — from anywhere, with your approval',
+    eyebrow: 'Beta Launch',
+     hero: 'A wallet without limits',
+      heroSub: 'Pay, send money, or let your agent handle it. Wherever you are, you stay in control.',
      paymentTitle: 'From Anywhere, To Anywhere',
      paymentSub: 'We make financial transactions part of any experience — across the apps, websites, and platforms you use every day',
     seeHow: 'See how it works',
@@ -112,14 +115,14 @@ const copy = {
     bankPayment: 'Payment from your bank account',
     manualEntry: 'No manual entry',
     featureEyebrow: 'More than a payment method',
-      featureTitle: 'Every Way, in One Wallet',
+      featureTitle: 'Your Wallet, Your Way',
      featureSub: 'Quiet tools in the background. A clear impact on every sale',
-     feature1: 'Connect Your Accounts',
-     feature1Sub: 'Bring your bank and digital accounts together in one place',
-     feature2: 'Save Your Way',
-      feature2Sub: 'Choose your preferred account or payment method for faster payments and transfers',
+     feature1: 'One Username for All Your Accounts',
+     feature1Sub: 'One username connects your details and accounts. Send and receive without sharing private information.',
+     feature2: 'You send. They choose the account.',
+      feature2Sub: 'Send money with RePay. The recipient decides which linked account to receive it in.',
      feature3: 'Track Your Activity',
-      feature3Sub: 'Keep your payments, transfers, and activity clear and easy to follow',
+      feature3Sub: 'See all your payments and transfers in one clear view.',
      demoButtonTitle: 'Try the Demo',
     faqEyebrow: 'Clear answers',
       faqTitle: 'Frequently Asked Questions',
@@ -142,15 +145,17 @@ const copy = {
 const faqData = {
   ar: [
     ['ما هي RePay؟', 'محفظة رقمية تنفّذ عنك عملياتك، وتتيح لك الدفع والتحويل السريع من أي مكان'],
-     ['هل بيانات العملاء آمنة؟', 'نعم، نطبق إجراءات أمنية لحماية بيانات التجار والعملاء، ولا يتم استخدامها إلا لتقديم خدمات RePay والالتزام بالأنظمة ذات العلاقة. بيانات الدفع والبطاقات محفوظة ومشفّرة، ولا يتم عرضها للوكيل أثناء تنفيذ العمليات'],
-     ['هل لديكم واجهات برمجية (API)؟', 'نعم، توفر RePay واجهات برمجية (API) للتكامل مع الأنظمة التي تدعم ذلك'],
-    ['تأكيد العملية', 'يتم عرض تفاصيل كل عملية لك قبل تنفيذها، ولا تتم إلا بعد موافقتك'],
+    ['كيف يتم الحفاظ على بياناتي؟', 'نطبّق إجراءات أمنية ونشفّر بياناتك لحمايتها، ولا نستخدمها إلا لتقديم خدمات RePay والالتزام بالأنظمة ذات العلاقة. تبقى بيانات الدفع والبطاقات مشفّرة، ولا تُعرض لوكيل الذكاء الاصطناعي أثناء تنفيذ العمليات'],
+    ['كيف يدفع وكيل الذكاء الاصطناعي بالنيابة عني؟', 'بعد موافقتك على المبلغ، يستخدم الوكيل بطاقة تُستخدم لمرة واحدة لإتمام الدفع، بدون الاطلاع على بياناتك الخاصة'],
+    ['كيف أؤكد عمليات الدفع والتحويل؟', 'يوصلك إشعار من تطبيق ري باي لمراجعة تفاصيل العملية والموافقة عليها. ولا تُنفّذ العملية إلا بعد موافقتك'],
+    ['هل أقدر أستقبل الأموال في أيٍّ من حساباتي؟', 'نعم، عندما تصلك حوالة عبر ري باي، تقدر تختار أي حساب من حساباتك المرتبطة وتحول المبلغ إليه لحظيًا'],
   ],
   en: [
-     ['What is RePay?', 'A digital wallet that acts on your behalf, with payments and fast transfers from anywhere'],
-     ['Is user data secure?', 'Yes. We apply security measures to protect merchant and user data, and it is only used to provide RePay services and comply with applicable regulations. Payment and card details are stored securely and encrypted, and are never exposed to the agent while transactions are being carried out'],
-      ['Do you provide APIs?', 'Yes. RePay provides APIs for integration with supported systems and platforms'],
-     ['Transaction Confirmation', 'You review the details of every transaction before it is completed, and nothing is processed without your approval'],
+    ['What is RePay?', 'RePay is a digital wallet for payments and fast transfers, wherever you are. It can act on your behalf, with your approval.'],
+    ['How is my data protected?', 'We apply security measures and encrypt your data to protect it. We only use it to provide RePay services and comply with applicable regulations. Payment and card details remain encrypted and are never shown to the AI agent during transactions'],
+    ['How does an AI agent pay on my behalf?', 'After you approve the amount, the agent uses a single-use card to complete the payment without accessing your private information'],
+    ['How do I confirm payments and transfers?', 'You receive a notification from the RePay app to review the transaction details and approve them. No transaction is processed without your approval'],
+    ['Can I receive money in any of my accounts?', 'Yes. When you receive a transfer through RePay, you can choose any of your linked accounts and move the money to it instantly'],
   ],
 } as const;
 
@@ -184,47 +189,61 @@ function Hero({ lang, setLang, onDemo }: { lang: Lang; setLang: (lang: Lang) => 
     <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(248,243,232,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(248,243,232,.08) 1px, transparent 1px)', backgroundSize: '72px 72px' }} />
      <Header lang={lang} setLang={setLang} />
     <div className="relative mx-auto flex min-h-[760px] max-w-[1240px] items-center justify-center px-5 pb-24 pt-28 lg:px-8 lg:pb-28 lg:pt-32">
-      <div className="reveal mx-auto max-w-[760px] text-center">
-        <div className="mb-7 inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[#008CFF]/30 bg-[#008CFF]/10 px-3 py-2 text-[10px] font-semibold uppercase tracking-[.16em] text-[#008CFF]">
-          <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#008CFF] opacity-70" /><span className="relative inline-flex h-2 w-2 rounded-full bg-[#008CFF]" /></span>
+      <div className="reveal mx-auto w-full min-w-0 max-w-[760px] text-center">
+        <div className="mb-7 inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[#FFB347]/30 bg-[#FFB347]/10 px-3 py-2 text-[10px] font-semibold uppercase tracking-[.16em] text-[#FFB347]">
+          <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FFB347] opacity-70" /><span className="relative inline-flex h-2 w-2 rounded-full bg-[#FFB347]" /></span>
           <span>{t.eyebrow}</span>
         </div>
-        <h1 className="display-font mx-auto max-w-[650px] text-[clamp(3.5rem,8vw,7.7rem)] font-semibold leading-[.95] tracking-[-.075em] text-white">{t.hero}</h1>
+        <h1 className="hero-title display-font mx-auto max-w-[650px] text-[clamp(3.5rem,8vw,7.7rem)] font-semibold leading-[.95] tracking-[-.075em] text-white">{t.hero}</h1>
         <p className="reveal reveal-1 mx-auto mt-8 max-w-[600px] text-lg leading-8 text-white">{t.heroSub}</p>
-        <div className="reveal reveal-2 mt-9 flex flex-wrap items-center justify-center gap-3">
-          <Button testId="button-hero-demo" variant="aqua" showArrow={false} onClick={onDemo} className="!bg-[#008CFF] !px-8 !py-4 !text-base !text-white hover:!bg-[#007de6]">{t.talk}</Button>
-          <a data-testid="link-hero-live-demo" href="http://demo.repay.sa" target="_blank" rel="noreferrer" dir="ltr" className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/25 bg-white/10 px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/15">
-            {t.demoButtonTitle}
-          </a>
+        <div className="reveal reveal-2 mt-9 flex justify-center">
+          <button type="button" className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/15 bg-[#30344f] px-9 py-4 text-base font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#3b405e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{lang === 'ar' ? 'ابدأ الآن' : 'Start now'}</button>
         </div>
+
       </div>
     </div>
     <div className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 items-center gap-2 whitespace-nowrap text-[10px] uppercase tracking-[.25em] text-white/40 md:flex"><span className="h-8 w-px bg-white/30" />scroll to explore</div>
   </section>;
 }
 
-function PaymentGatewaySection({ lang }: { lang: Lang }) {
-  const t = copy[lang];
-  return <section className="bg-white px-5 py-24 lg:px-8 lg:py-32" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-    <div className="mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
-      <div>
-        <h2 className="display-font max-w-[560px] text-4xl font-semibold leading-[1.08] tracking-[-.06em] text-[#20233c] md:text-6xl">{t.paymentTitle}</h2>
-        <p className="mt-6 max-w-[560px] text-lg leading-8 text-[#54686a]">{t.paymentSub}</p>
+function FittedDescription({ children }: { children: string }) {
+  const container = useRef<HTMLParagraphElement>(null);
+  const text = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const fit = () => {
+      if (!container.current || !text.current) return;
+      text.current.style.fontSize = '16px';
+      const width = text.current.getBoundingClientRect().width;
+      const available = container.current.clientWidth;
+      if (width > available && available > 0) {
+        text.current.style.fontSize = `${16 * available / width}px`;
+      }
+    };
+    const observer = new ResizeObserver(fit);
+    if (container.current) observer.observe(container.current);
+    fit();
+    let active = true;
+    void document.fonts.ready.then(() => { if (active) fit(); });
+    return () => { active = false; observer.disconnect(); };
+  }, [children]);
+  return <p ref={container} style={{ fontFamily: "'Rubik', sans-serif" }} className="mx-auto mt-4 w-full leading-8 text-[#A6A6A6]"><span ref={text} className="inline-block whitespace-nowrap align-top">{children}</span></p>;
+}
+
+function WhatsAppSection({ lang }: { lang: Lang }) {
+  const ar = lang === 'ar';
+  return <section id="experience" className="overflow-hidden bg-white px-6 pb-16 pt-16 text-center sm:pb-20 sm:pt-24 lg:pb-24" dir={ar ? 'rtl' : 'ltr'}>
+    <div className={`mx-auto max-w-[1240px] ${ar ? 'text-right' : 'text-left'}`}>
+      <h2 style={{ fontFamily: "'Rubik', sans-serif" }} className="display-font max-w-[720px] text-[clamp(1.75rem,3.6vw,2.75rem)] font-bold leading-[1.45] tracking-[-.025em] text-[#191D24]">{ar ? 'تحويل الأموال صار بسهولة إرسال رسالة' : 'Sending money is as easy as sending a message'}</h2>
+      {ar ? <FittedDescription>اكتب «حوّل لمحمد ٢٠ ريال» أو شارك جهة اتصاله عبر واتساب. التحويل بموافقتك</FittedDescription> : <p className="mt-4 max-w-[720px] text-base leading-8 text-[#A6A6A6]">Send “Transfer SAR 20 to Mohammed” or share a contact on WhatsApp. You review and approve the transfer.</p>}
+    </div>
+    <div className="relative mx-auto mt-10 max-w-[760px] sm:mt-12">
+      <img src={whatsappPhone} alt={ar ? 'محادثة RePay على واتساب لمراجعة تفاصيل الحوالة وتأكيدها' : 'RePay WhatsApp conversation showing transfer review and confirmation'} className="mx-auto block h-auto w-[72%] max-w-[310px] drop-shadow-[0_24px_35px_rgba(32,35,60,.12)]" />
+      <div className="absolute -right-2 bottom-[4%] z-10 flex w-[88%] max-w-[420px] items-center gap-1 sm:right-0 sm:w-[58%] sm:gap-2">
+        <img src={transferNotification} alt={ar ? 'إشعار RePay: تأكيد طلب تحويل، راجع تفاصيل العملية' : 'RePay notification: review your transfer request'} className="block h-auto min-w-0 flex-1" />
+        <span aria-hidden="true" className="shrink-0 text-2xl drop-shadow-sm sm:text-3xl">🔔</span>
       </div>
-      <div className="relative mx-auto w-full max-w-[680px] px-8 py-10 sm:px-14 sm:py-14">
-        <div aria-hidden="true" className="absolute left-[7%] top-1 grid h-10 w-10 -rotate-6 place-items-center rounded-2xl border border-[#008CFF]/15 bg-[#eef7ff] text-[#008CFF] shadow-[0_12px_30px_rgba(32,35,60,.10)] sm:h-12 sm:w-12">
-          <MessageCircle size={19} />
-        </div>
-        <div aria-hidden="true" className="absolute right-0 top-[18%] grid h-11 w-11 rotate-6 place-items-center rounded-2xl border border-[#20233c]/10 bg-white text-[#20233c] shadow-[0_12px_30px_rgba(32,35,60,.12)] sm:h-13 sm:w-13">
-          <ShoppingBag size={20} />
-        </div>
-        <div aria-hidden="true" className="absolute bottom-[12%] left-0 grid h-11 w-11 rotate-3 place-items-center rounded-2xl border border-[#63d7d1]/25 bg-[#effcfb] text-[#248e88] shadow-[0_12px_30px_rgba(32,35,60,.10)] sm:h-13 sm:w-13">
-          <Globe2 size={20} />
-        </div>
-        <div aria-hidden="true" className="absolute bottom-0 right-[10%] grid h-10 w-10 -rotate-6 place-items-center rounded-2xl border border-[#008CFF]/15 bg-[#20233c] text-white shadow-[0_12px_30px_rgba(32,35,60,.16)] sm:h-12 sm:w-12">
-          <Smartphone size={18} />
-        </div>
-        <img src={paymentImage} alt="طرق الدفع المتاحة عبر التطبيقات والمواقع والمتاجر" className="relative z-10 mx-auto block w-full max-w-[626px]" />
+      <div aria-hidden="true" className="absolute right-[3%] top-[12%] grid h-14 w-14 rotate-12 place-items-center rounded-[18px] bg-[#25D366] text-white shadow-[0_12px_28px_rgba(37,211,102,.22)] sm:right-[10%] sm:h-[72px] sm:w-[72px] sm:rounded-[22px]">
+        <SiWhatsapp className="h-8 w-8 sm:h-10 sm:w-10" />
       </div>
     </div>
   </section>;
@@ -233,7 +252,31 @@ function PaymentGatewaySection({ lang }: { lang: Lang }) {
 function Features({ lang }: { lang: Lang }) {
   const t = copy[lang];
   const features = [{ icon: Banknote, title: t.feature1, sub: t.feature1Sub }, { icon: Sparkles, title: t.feature2, sub: t.feature2Sub }, { icon: ShieldCheck, title: t.feature3, sub: t.feature3Sub }];
-  return <section id="features" className="bg-white px-5 py-20 sm:py-24 lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto max-w-[1240px]"><div><h2 className="display-font max-w-[600px] text-[clamp(2rem,5vw,3.75rem)] font-semibold leading-[1.1] tracking-[-.06em] text-[#20233c]">{t.featureTitle}</h2></div><div className="mt-12 grid gap-4 sm:mt-16 md:grid-cols-3">{features.map(({ icon: Icon, title, sub }) => <div key={title} className="group min-h-[300px] rounded-[2rem] bg-[#f4f4f6] p-6 transition-transform duration-500 hover:-translate-y-2 sm:p-7"><div className="flex items-start justify-between"><div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#e5f1ff] text-[#008CFF]"><Icon size={21} /></div></div><h3 className="mt-20 text-lg font-bold leading-7 text-[#20233c] sm:mt-24 sm:text-xl">{title}</h3><p className="mt-3 text-sm font-medium leading-6 text-[#666778]">{sub}</p></div>)}</div></div></section>;
+  return <section id="features" className="bg-white px-5 py-20 sm:py-24 lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto max-w-[1240px]"><div><h2 className="display-font max-w-[600px] text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[1.1] tracking-[-.06em] text-[#191D24]">{t.featureTitle}</h2></div><div className="mt-12 grid gap-4 sm:mt-16 md:grid-cols-3">{features.map(({ icon: Icon, title, sub }) => <div key={title} className="group relative isolate min-h-[300px] overflow-hidden rounded-[2rem] bg-[#fafafd] p-6 transition-transform duration-500 hover:-translate-y-2 sm:p-7"><div aria-hidden="true" className="pointer-events-none absolute -left-24 top-1/2 -z-10 h-[340px] w-[340px] -translate-y-1/2 rounded-full opacity-30 blur-[38px]" style={{ background: 'conic-gradient(from 20deg, #008CFF, #FFB347, #FF9B50, #008CFF)' }} /><div className="flex items-start justify-between"><div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#e5f1ff] text-[#008CFF]"><Icon size={21} /></div></div><h3 className="mt-20 text-lg font-bold leading-7 text-[#20233c] sm:mt-24 sm:text-xl">{title}</h3><p className="mt-3 text-sm font-medium leading-6 text-[#666778]">{sub}</p></div>)}</div></div></section>;
+}
+
+function AgentWalletSection({ lang }: { lang: Lang }) {
+  const ar = lang === 'ar';
+  return <section id="agent-wallet" className="relative isolate overflow-hidden bg-[#20233c] px-6 py-20 text-white lg:px-8 lg:py-28" dir={ar ? 'rtl' : 'ltr'}>
+    <div aria-hidden="true" className="pointer-events-none absolute -right-40 -top-48 -z-10 h-[400px] w-[450px] rounded-full bg-[radial-gradient(ellipse,rgba(255,255,255,.025),transparent_65%)] blur-3xl" />
+    <div className="mx-auto max-w-[1240px]">
+      <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#FFB347]/30 bg-[#FFB347]/10 px-3 py-2 text-[10px] font-semibold tracking-[.16em] text-[#FFB347]">
+        <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FFB347] opacity-70" /><span className="relative inline-flex h-2 w-2 rounded-full bg-[#FFB347]" /></span>
+        {ar ? 'قريبًا' : 'COMING SOON'}
+      </div>
+      <h2 className="display-font max-w-[760px] text-[clamp(2rem,3.8vw,3.25rem)] font-bold leading-[1.35] tracking-[-.035em]">{ar ? 'محفظة لوكيل الذكاء الاصطناعي' : 'A wallet for your AI agent'}</h2>
+      <p className="mt-6 max-w-[760px] text-base leading-8 text-white/80">{ar ? 'محفظة تدفع بالنيابة عنك ببطاقة تُستخدم لمرة واحدة لكل عملية. أنت توافق على المبلغ قبل الدفع، بدون مشاركة بياناتك وتتابع كل العمليات من تطبيق ري باي' : 'Let your AI agent pay with a fresh, single-use card for every purchase. You approve the amount first, your private details stay protected, and you can track everything in the RePay app.'}</p>
+      <div className="mt-10 flex items-center" aria-label={ar ? 'برامج الذكاء الاصطناعي' : 'AI apps'}>
+        <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-[#20233c] bg-[#343942] sm:h-14 sm:w-14  " style={{ zIndex: 6 }}><SiClaude role="img" aria-label="Claude" title="Claude" size={34} color="#D97757" /></span>
+        <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-[#20233c] bg-[#343942] sm:h-14 sm:w-14 -ms-3 -translate-y-1" style={{ zIndex: 5 }}><RiOpenaiFill role="img" aria-label="ChatGPT" title="ChatGPT" size={36} color="#10A37F" /></span>
+        <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-[#20233c] bg-[#343942] sm:h-14 sm:w-14 -ms-3 " style={{ zIndex: 4 }}><SiGooglegemini role="img" aria-label="Gemini" title="Gemini" size={34} style={{ fill: 'url(#agent-gemini-gradient)' }} /></span>
+        <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-[#20233c] bg-[#343942] sm:h-14 sm:w-14 -ms-3 -translate-y-1" style={{ zIndex: 3 }}><RiGrokAiFill role="img" aria-label="Grok" title="Grok" size={36} color="#FFFFFF" /></span>
+        <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-[#20233c] bg-[#343942] sm:h-14 sm:w-14 -ms-3 " style={{ zIndex: 2 }}><SiDeepseek role="img" aria-label="DeepSeek" title="DeepSeek" size={38} color="#4D6BFE" /></span>
+        <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-[#20233c] bg-[#343942] sm:h-14 sm:w-14 -ms-3 -translate-y-1" style={{ zIndex: 1 }}><SiPerplexity role="img" aria-label="Perplexity" title="Perplexity" size={34} color="#20B8CD" /></span>
+      </div>
+      <svg aria-hidden="true" width="0" height="0" className="absolute"><defs><linearGradient id="agent-gemini-gradient" x1="0" y1="1" x2="1" y2="0"><stop stopColor="#4285F4" /><stop offset=".5" stopColor="#9B72CB" /><stop offset="1" stopColor="#D96570" /></linearGradient></defs></svg>
+    </div>
+  </section>;
 }
 
 function FAQ({ lang }: { lang: Lang }) {
@@ -258,7 +301,14 @@ function FAQ({ lang }: { lang: Lang }) {
 
 function Footer({ lang }: { lang: Lang }) {
   const t = copy[lang];
-  return <footer className="bg-[#20233c] px-5 py-8 text-[#f8f3e8] lg:px-8" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto flex max-w-[1240px] flex-col items-center justify-center gap-3"><p className="text-center text-xs text-white/50">{t.rights}</p><a href={`${import.meta.env.BASE_URL}privacy-policy/document.pdf`} target="_blank" rel="noopener noreferrer" className="text-center text-xs text-white/50 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white">{t.privacyPolicy}</a></div></footer>;
+  return <footer className="bg-[#20233c] px-5 py-8 lg:px-8" dir="ltr" style={{ fontFamily: "'Rubik', sans-serif" }}>
+    <div className="mx-auto flex max-w-[1240px] items-start justify-between gap-6 text-xs font-normal leading-6 text-white/60">
+      <p>© 2026 RePay Financials</p>
+      <div className="flex shrink-0 flex-col items-end gap-1">
+        <a href={`${import.meta.env.BASE_URL}privacy-policy/document.pdf`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">{t.privacyPolicy}</a>
+      </div>
+    </div>
+  </footer>;
 }
 
 function normalizeMobileDigits(value: string): string {
@@ -364,7 +414,7 @@ function CookieNotice({ lang }: { lang: Lang }) {
 
 function Home() {
   const [lang, setLang] = useState<Lang>('ar'); const [demo, setDemo] = useState(false);
-  return <main lang={lang} className="noise" dir={lang === 'ar' ? 'rtl' : 'ltr'}><Hero lang={lang} setLang={setLang} onDemo={() => setDemo(true)} /><PaymentGatewaySection lang={lang} /><Features lang={lang} /><FAQ lang={lang} /><Footer lang={lang} />{demo && <DemoModal lang={lang} close={() => setDemo(false)} />}<CookieNotice lang={lang} /></main>;
+  return <main lang={lang} className="noise" dir={lang === 'ar' ? 'rtl' : 'ltr'}><Hero lang={lang} setLang={setLang} onDemo={() => setDemo(true)} /><WhatsAppSection lang={lang} /><Features lang={lang} /><AgentWalletSection lang={lang} /><FAQ lang={lang} /><Footer lang={lang} />{demo && <DemoModal lang={lang} close={() => setDemo(false)} />}<CookieNotice lang={lang} /></main>;
 }
 
 function Router() {
