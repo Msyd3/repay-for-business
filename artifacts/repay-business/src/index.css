@@ -126,3 +126,12 @@ main[dir="rtl"], main[dir="rtl"] .display-font { font-family: 'Rubik', sans-seri
 [class*="border-[#248e88]"] { border-color: #008CFF !important; }
 
 main[lang="en"] .hero-title {font-size:clamp(2rem,7.2vw,5.5rem);line-height:1.08;letter-spacing:-.045em;overflow-wrap:break-word;text-wrap:balance;max-width:760px;}
+
+@font-face { font-family: 'Tajarib'; src: url('./assets/fonts/Tajarib_Typeface_Light.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Tajarib'; src: url('./assets/fonts/Tajarib_Typeface_Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Tajarib'; src: url('./assets/fonts/Tajarib_Typeface_Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Tajarib'; src: url('./assets/fonts/Tajarib_Typeface_Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Tajarib'; src: url('./assets/fonts/Tajarib_Typeface_Black.otf') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
+main[lang="ar"], main[lang="ar"] *, main[lang="en"], main[lang="en"] * { font-family: 'Tajarib', 'Rubik', sans-serif !important; }
+main[lang="ar"] .hero-title, main[lang="en"] .hero-title { font-weight: 900; }
+main[lang="ar"] .hero-title { width: 100%; max-width: 100%; white-space: nowrap; letter-spacing: -.025em; }

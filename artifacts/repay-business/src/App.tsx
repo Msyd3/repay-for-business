@@ -89,7 +89,7 @@ const copy = {
     start: 'Get started',
     eyebrow: 'Beta Launch',
      hero: 'A wallet without limits',
-      heroSub: 'Pay, send money, or let your agent handle it. Wherever you are, you stay in control.',
+      heroSub: 'Pay, send money, or let your agent handle it Wherever you are, you stay in control',
      paymentTitle: 'From Anywhere, To Anywhere',
      paymentSub: 'We make financial transactions part of any experience — across the apps, websites, and platforms you use every day',
     seeHow: 'See how it works',
@@ -116,13 +116,13 @@ const copy = {
     manualEntry: 'No manual entry',
     featureEyebrow: 'More than a payment method',
       featureTitle: 'Your Wallet, Your Way',
-     featureSub: 'Quiet tools in the background. A clear impact on every sale',
+     featureSub: 'Quiet tools in the background A clear impact on every sale',
      feature1: 'One Username for All Your Accounts',
-     feature1Sub: 'One username connects your details and accounts. Send and receive without sharing private information.',
-     feature2: 'You send. They choose the account.',
-      feature2Sub: 'Send money with RePay. The recipient decides which linked account to receive it in.',
+     feature1Sub: 'One username connects your details and accounts Send and receive without sharing private information',
+     feature2: 'You send They choose the account',
+      feature2Sub: 'Send money with RePay The recipient decides which linked account to receive it in',
      feature3: 'Track Your Activity',
-      feature3Sub: 'See all your payments and transfers in one clear view.',
+      feature3Sub: 'See all your payments and transfers in one clear view',
      demoButtonTitle: 'Try the Demo',
     faqEyebrow: 'Clear answers',
       faqTitle: 'Frequently Asked Questions',
@@ -148,14 +148,14 @@ const faqData = {
     ['كيف يتم الحفاظ على بياناتي؟', 'نطبّق إجراءات أمنية ونشفّر بياناتك لحمايتها، ولا نستخدمها إلا لتقديم خدمات RePay والالتزام بالأنظمة ذات العلاقة. تبقى بيانات الدفع والبطاقات مشفّرة، ولا تُعرض لوكيل الذكاء الاصطناعي أثناء تنفيذ العمليات'],
     ['كيف يدفع وكيل الذكاء الاصطناعي بالنيابة عني؟', 'بعد موافقتك على المبلغ، يستخدم الوكيل بطاقة تُستخدم لمرة واحدة لإتمام الدفع، بدون الاطلاع على بياناتك الخاصة'],
     ['كيف أؤكد عمليات الدفع والتحويل؟', 'يوصلك إشعار من تطبيق ري باي لمراجعة تفاصيل العملية والموافقة عليها. ولا تُنفّذ العملية إلا بعد موافقتك'],
-    ['هل أقدر أستقبل الأموال في أيٍّ من حساباتي؟', 'نعم، عندما تصلك حوالة عبر ري باي، تقدر تختار أي حساب من حساباتك المرتبطة وتحول المبلغ إليه لحظيًا'],
+    ['هل أقدر أستقبل الأموال في أيٍّ من حساباتي؟', 'نعم، عندما تصلك حوالة عبر ري باي، تقدر تختار أي حساب من حساباتك المرتبطة وتسحب المبلغ إليه لحظيًا'],
   ],
   en: [
-    ['What is RePay?', 'RePay is a digital wallet for payments and fast transfers, wherever you are. It can act on your behalf, with your approval.'],
-    ['How is my data protected?', 'We apply security measures and encrypt your data to protect it. We only use it to provide RePay services and comply with applicable regulations. Payment and card details remain encrypted and are never shown to the AI agent during transactions'],
+    ['What is RePay?', 'RePay is a digital wallet for payments and fast transfers, wherever you are It can act on your behalf, with your approval'],
+    ['How is my data protected?', 'We apply security measures and encrypt your data to protect it We only use it to provide RePay services and comply with applicable regulations Payment and card details remain encrypted and are never shown to the AI agent during transactions'],
     ['How does an AI agent pay on my behalf?', 'After you approve the amount, the agent uses a single-use card to complete the payment without accessing your private information'],
-    ['How do I confirm payments and transfers?', 'You receive a notification from the RePay app to review the transaction details and approve them. No transaction is processed without your approval'],
-    ['Can I receive money in any of my accounts?', 'Yes. When you receive a transfer through RePay, you can choose any of your linked accounts and move the money to it instantly'],
+    ['How do I confirm payments and transfers?', 'You receive a notification from the RePay app to review the transaction details and approve them No transaction is processed without your approval'],
+    ['Can I receive money in any of my accounts?', 'Yes When you receive a transfer through RePay, you can choose any of your linked accounts and move the money to it instantly'],
   ],
 } as const;
 
@@ -185,6 +185,24 @@ function Header({ lang, setLang }: { lang: Lang; setLang: (lang: Lang) => void }
 
 function Hero({ lang, setLang, onDemo }: { lang: Lang; setLang: (lang: Lang) => void; onDemo: () => void }) {
   const t = copy[lang];
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (lang !== 'ar') return;
+    const title = titleRef.current;
+    if (!title) return;
+    const fit = () => {
+      title.style.fontSize = '123.2px';
+      const width = title.getBoundingClientRect().width;
+      const textWidth = title.scrollWidth;
+      if (textWidth > width && width > 0) title.style.fontSize = `${123.2 * width / textWidth}px`;
+    };
+    const observer = new ResizeObserver(fit);
+    observer.observe(title);
+    fit();
+    let active = true;
+    void document.fonts.ready.then(() => { if (active) fit(); });
+    return () => { active = false; observer.disconnect(); title.style.fontSize = ''; };
+  }, [lang]);
   return <section className="relative min-h-[760px] overflow-hidden bg-[#20233c] text-[#f8f3e8]" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
     <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(248,243,232,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(248,243,232,.08) 1px, transparent 1px)', backgroundSize: '72px 72px' }} />
      <Header lang={lang} setLang={setLang} />
@@ -194,10 +212,10 @@ function Hero({ lang, setLang, onDemo }: { lang: Lang; setLang: (lang: Lang) => 
           <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FFB347] opacity-70" /><span className="relative inline-flex h-2 w-2 rounded-full bg-[#FFB347]" /></span>
           <span>{t.eyebrow}</span>
         </div>
-        <h1 className="hero-title display-font mx-auto max-w-[650px] text-[clamp(3.5rem,8vw,7.7rem)] font-semibold leading-[.95] tracking-[-.075em] text-white">{t.hero}</h1>
-        <p className="reveal reveal-1 mx-auto mt-8 max-w-[600px] text-lg leading-8 text-white">{t.heroSub}</p>
+        <h1 ref={titleRef} className="hero-title display-font mx-auto max-w-[650px] text-[clamp(3.5rem,8vw,7.7rem)] font-semibold leading-[.95] tracking-[-.075em] text-white">{t.hero}</h1>
+        <div className="reveal reveal-1 mx-auto mt-8 w-full"><FittedDescription className="!mt-0 !text-white">{t.heroSub}</FittedDescription></div>
         <div className="reveal reveal-2 mt-9 flex justify-center">
-          <button type="button" className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/15 bg-[#30344f] px-9 py-4 text-base font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#3b405e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{lang === 'ar' ? 'ابدأ الآن' : 'Start now'}</button>
+          <button type="button" className="inline-flex h-[48px] items-center justify-center rounded-full border border-white/15 bg-[#30344f] px-9 text-base font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#3b405e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{lang === 'ar' ? 'ابدأ الآن' : 'Start now'}</button>
         </div>
 
       </div>
@@ -206,7 +224,7 @@ function Hero({ lang, setLang, onDemo }: { lang: Lang; setLang: (lang: Lang) => 
   </section>;
 }
 
-function FittedDescription({ children }: { children: string }) {
+function FittedDescription({ children, className = '' }: { children: string; className?: string }) {
   const container = useRef<HTMLParagraphElement>(null);
   const text = useRef<HTMLSpanElement>(null);
   useEffect(() => {
@@ -226,7 +244,7 @@ function FittedDescription({ children }: { children: string }) {
     void document.fonts.ready.then(() => { if (active) fit(); });
     return () => { active = false; observer.disconnect(); };
   }, [children]);
-  return <p ref={container} style={{ fontFamily: "'Rubik', sans-serif" }} className="mx-auto mt-4 w-full leading-8 text-[#A6A6A6]"><span ref={text} className="inline-block whitespace-nowrap align-top">{children}</span></p>;
+  return <p ref={container} style={{ fontFamily: "'Rubik', sans-serif" }} className={`mx-auto mt-4 w-full leading-8 text-[#A6A6A6] ${className}`}><span ref={text} className="inline-block whitespace-nowrap align-top">{children}</span></p>;
 }
 
 function WhatsAppSection({ lang }: { lang: Lang }) {
@@ -234,7 +252,7 @@ function WhatsAppSection({ lang }: { lang: Lang }) {
   return <section id="experience" className="overflow-hidden bg-white px-6 pb-16 pt-16 text-center sm:pb-20 sm:pt-24 lg:pb-24" dir={ar ? 'rtl' : 'ltr'}>
     <div className={`mx-auto max-w-[1240px] ${ar ? 'text-right' : 'text-left'}`}>
       <h2 style={{ fontFamily: "'Rubik', sans-serif" }} className="display-font max-w-[720px] text-[clamp(1.75rem,3.6vw,2.75rem)] font-bold leading-[1.45] tracking-[-.025em] text-[#191D24]">{ar ? 'تحويل الأموال صار بسهولة إرسال رسالة' : 'Sending money is as easy as sending a message'}</h2>
-      {ar ? <FittedDescription>اكتب «حوّل لمحمد ٢٠ ريال» أو شارك جهة اتصاله عبر واتساب. التحويل بموافقتك</FittedDescription> : <p className="mt-4 max-w-[720px] text-base leading-8 text-[#A6A6A6]">Send “Transfer SAR 20 to Mohammed” or share a contact on WhatsApp. You review and approve the transfer.</p>}
+      {ar ? <FittedDescription>اكتب «حوّل لمحمد ٢٠ ريال» أو شارك جهة اتصاله عبر واتساب. التحويل بموافقتك</FittedDescription> : <p className="mt-4 max-w-[720px] text-base leading-8 text-[#A6A6A6]">Send “Transfer SAR 20 to Mohammed” or share a contact on WhatsApp You review and approve the transfer</p>}
     </div>
     <div className="relative mx-auto mt-10 max-w-[760px] sm:mt-12">
       <img src={whatsappPhone} alt={ar ? 'محادثة RePay على واتساب لمراجعة تفاصيل الحوالة وتأكيدها' : 'RePay WhatsApp conversation showing transfer review and confirmation'} className="mx-auto block h-auto w-[72%] max-w-[310px] drop-shadow-[0_24px_35px_rgba(32,35,60,.12)]" />
@@ -265,7 +283,7 @@ function AgentWalletSection({ lang }: { lang: Lang }) {
         {ar ? 'قريبًا' : 'COMING SOON'}
       </div>
       <h2 className="display-font max-w-[760px] text-[clamp(2rem,3.8vw,3.25rem)] font-bold leading-[1.35] tracking-[-.035em]">{ar ? 'محفظة لوكيل الذكاء الاصطناعي' : 'A wallet for your AI agent'}</h2>
-      <p className="mt-6 max-w-[760px] text-base leading-8 text-white/80">{ar ? 'محفظة تدفع بالنيابة عنك ببطاقة تُستخدم لمرة واحدة لكل عملية. أنت توافق على المبلغ قبل الدفع، بدون مشاركة بياناتك وتتابع كل العمليات من تطبيق ري باي' : 'Let your AI agent pay with a fresh, single-use card for every purchase. You approve the amount first, your private details stay protected, and you can track everything in the RePay app.'}</p>
+      <p className="mt-6 max-w-[760px] text-base leading-8 text-white/80">{ar ? 'محفظة تدفع بالنيابة عنك ببطاقة تُستخدم لمرة واحدة لكل عملية. أنت توافق على المبلغ قبل الدفع، بدون مشاركة بياناتك وتتابع كل العمليات من تطبيق ري باي' : 'Let your AI agent pay with a fresh, single-use card for every purchase You approve the amount first, your private details stay protected, and you can track everything in the RePay app'}</p>
       <div className="mt-10 flex items-center" aria-label={ar ? 'برامج الذكاء الاصطناعي' : 'AI apps'}>
         <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-[#20233c] bg-[#343942] sm:h-14 sm:w-14  " style={{ zIndex: 6 }}><SiClaude role="img" aria-label="Claude" title="Claude" size={34} color="#D97757" /></span>
         <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-[#20233c] bg-[#343942] sm:h-14 sm:w-14 -ms-3 -translate-y-1" style={{ zIndex: 5 }}><RiOpenaiFill role="img" aria-label="ChatGPT" title="ChatGPT" size={36} color="#10A37F" /></span>
