@@ -135,3 +135,19 @@ main[lang="en"] .hero-title {font-size:clamp(2rem,7.2vw,5.5rem);line-height:1.08
 main[lang="ar"], main[lang="ar"] *, main[lang="en"], main[lang="en"] * { font-family: 'Tajarib', 'Rubik', sans-serif !important; }
 main[lang="ar"] .hero-title, main[lang="en"] .hero-title { font-weight: 900; }
 main[lang="ar"] .hero-title { width: 100%; max-width: 100%; white-space: nowrap; letter-spacing: -.025em; }
+
+.remoji{position:absolute;pointer-events:none;z-index:2;--look-x:0px;--look-y:0px;--turn:0deg;--bot-tilt:0deg;--phase:0s;perspective:600px;filter:drop-shadow(0 16px 18px rgba(0,0,0,.08))}
+.remoji-float,.remoji-turn,.remoji-body{width:100%;height:100%}.remoji-float{animation:remoji-float 7s ease-in-out infinite;animation-delay:var(--phase)}.remoji-turn{position:relative;transform:rotateY(var(--turn)) rotate(var(--bot-tilt));transition:transform 1s cubic-bezier(.2,.7,.2,1)}.remoji-body{background:var(--bot-color);mask-size:contain;mask-repeat:no-repeat;mask-position:center;-webkit-mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center}
+.remoji-gaze{position:absolute;inset:0;transform:translate(var(--look-x),var(--look-y));transition:transform .7s ease-out}.remoji-eyes{position:absolute;left:var(--eye-x);top:var(--eye-y);width:100%;height:100%;display:flex;gap:var(--eye-gap);justify-content:center;transform:translate(-50%,-50%) rotate(var(--eye-angle));animation:remoji-glance 11s ease-in-out infinite;animation-delay:var(--phase)}.remoji-eyes i{display:block;position:relative;align-self:center;width:var(--eye-width);height:var(--eye-height);background:white;border-radius:999px;animation:remoji-blink 6.7s infinite;animation-delay:var(--phase)}
+.remoji-shadow{position:absolute;bottom:-13%;left:15%;width:70%;height:8%;border-radius:50%;background:#000;filter:blur(9px);opacity:.08;animation:remoji-shadow 7s ease-in-out infinite;animation-delay:var(--phase)}
+.remoji-hero-blue{width:clamp(95px,12vw,170px);left:7%;top:21%;--bot-tilt:-15deg;--phase:-2s}.remoji-hero-mint{width:clamp(110px,15vw,205px);right:5%;bottom:12%;--bot-tilt:12deg;--phase:-4.5s}.remoji-phone{width:112px;left:3%;top:40%;--bot-tilt:-12deg;--phase:-3s}.remoji-features{width:150px;left:7%;top:14px;--bot-tilt:10deg;--phase:-5s}.remoji-agent{width:195px;left:8%;top:25%;--bot-tilt:-9deg;--phase:-1s}.remoji-faq{width:75px;left:10%;bottom:24px;--bot-tilt:14deg;--phase:-4s}
+@keyframes remoji-float{0%,100%{transform:translate3d(0,0,0) rotate(-3deg)}45%{transform:translate3d(6px,-15px,0) rotate(3deg)}75%{transform:translate3d(-4px,-6px,0) rotate(-1deg)}}
+@keyframes remoji-blink{0%,40%,43%,75%,78%,100%{transform:scaleY(1)}41.5%,76.5%{transform:scaleY(.08)}}
+@keyframes remoji-glance{0%,15%,45%,100%{margin-left:0;margin-top:0}22%,32%{margin-left:3%;margin-top:-2%}62%,76%{margin-left:-3%;margin-top:1%}}
+@keyframes remoji-shadow{0%,100%{transform:scale(1);opacity:.09}45%{transform:scale(.75);opacity:.04}}
+@media(max-width:1100px){.remoji-hero-blue{left:3%;top:17%;width:100px}.remoji-hero-mint{right:3%;bottom:9%;width:140px}.remoji-agent{left:3%;top:auto;bottom:20px;width:135px}.remoji-features{left:3%;width:105px;top:15px}}
+@media(max-width:640px){.remoji-hero-blue{width:79px;left:8%;top:19%}.remoji-hero-mint{width:112px;right:6%;bottom:11%}.remoji-phone{width:65px;left:-3%;top:35%}.remoji-features{width:85px;left:5%;top:3px}.remoji-agent{width:95px;left:5%;bottom:22px}.remoji-faq{width:57px;left:8%;bottom:20px}}
+@media(prefers-reduced-motion:reduce){.remoji *{animation:none!important;transition:none!important}.remoji-gaze{transform:none}.remoji-turn{transform:rotate(var(--bot-tilt))}}
+main[lang="en"] .remoji-agent{left:auto;right:8%}
+@media(max-width:1100px){main[lang="en"] .remoji-agent{right:3%}}
+@media(max-width:640px){main[lang="en"] .remoji-agent{right:5%}}

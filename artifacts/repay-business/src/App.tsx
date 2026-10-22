@@ -1,3 +1,4 @@
+import { Remoji } from '@/components/remoji';
 import { RiOpenaiFill, RiGrokAiFill } from 'react-icons/ri';
 import { type ChangeEvent, type FormEvent, type ReactNode, useEffect, useRef, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -206,6 +207,7 @@ function Hero({ lang, setLang, onDemo }: { lang: Lang; setLang: (lang: Lang) => 
   return <section className="relative min-h-[760px] overflow-hidden bg-[#20233c] text-[#f8f3e8]" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
     <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(248,243,232,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(248,243,232,.08) 1px, transparent 1px)', backgroundSize: '72px 72px' }} />
      <Header lang={lang} setLang={setLang} />
+    <Remoji kind="blue" placement="hero-blue" /><Remoji kind="mint" placement="hero-mint" />
     <div className="relative mx-auto flex min-h-[760px] max-w-[1240px] items-center justify-center px-5 pb-24 pt-28 lg:px-8 lg:pb-28 lg:pt-32">
       <div className="reveal mx-auto w-full min-w-0 max-w-[760px] text-center">
         <div className="mb-7 inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[#FFB347]/30 bg-[#FFB347]/10 px-3 py-2 text-[10px] font-semibold uppercase tracking-[.16em] text-[#FFB347]">
@@ -249,7 +251,7 @@ function FittedDescription({ children, className = '' }: { children: string; cla
 
 function WhatsAppSection({ lang }: { lang: Lang }) {
   const ar = lang === 'ar';
-  return <section id="experience" className="overflow-hidden bg-white px-6 pb-16 pt-16 text-center sm:pb-20 sm:pt-24 lg:pb-24" dir={ar ? 'rtl' : 'ltr'}>
+  return <section id="experience" className="relative overflow-hidden bg-white px-6 pb-16 pt-16 text-center sm:pb-20 sm:pt-24 lg:pb-24" dir={ar ? 'rtl' : 'ltr'}>
     <div className={`mx-auto max-w-[1240px] ${ar ? 'text-right' : 'text-left'}`}>
       <h2 style={{ fontFamily: "'Rubik', sans-serif" }} className="display-font max-w-[720px] text-[clamp(1.75rem,3.6vw,2.75rem)] font-bold leading-[1.45] tracking-[-.025em] text-[#191D24]">{ar ? 'تحويل الأموال صار بسهولة إرسال رسالة' : 'Sending money is as easy as sending a message'}</h2>
       {ar ? <FittedDescription>اكتب «حوّل لمحمد ٢٠ ريال» أو شارك جهة اتصاله عبر واتساب. التحويل بموافقتك</FittedDescription> : <p className="mt-4 max-w-[720px] text-base leading-8 text-[#A6A6A6]">Send “Transfer SAR 20 to Mohammed” or share a contact on WhatsApp You review and approve the transfer</p>}
@@ -270,14 +272,14 @@ function WhatsAppSection({ lang }: { lang: Lang }) {
 function Features({ lang }: { lang: Lang }) {
   const t = copy[lang];
   const features = [{ icon: Banknote, title: t.feature1, sub: t.feature1Sub }, { icon: Sparkles, title: t.feature2, sub: t.feature2Sub }, { icon: ShieldCheck, title: t.feature3, sub: t.feature3Sub }];
-  return <section id="features" className="bg-white px-5 py-20 sm:py-24 lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}><div className="mx-auto max-w-[1240px]"><div><h2 className="display-font max-w-[600px] text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[1.1] tracking-[-.06em] text-[#191D24]">{t.featureTitle}</h2></div><div className="mt-12 grid gap-4 sm:mt-16 md:grid-cols-3">{features.map(({ icon: Icon, title, sub }) => <div key={title} className="group relative isolate min-h-[300px] overflow-hidden rounded-[2rem] bg-[#fafafd] p-6 transition-transform duration-500 hover:-translate-y-2 sm:p-7"><div aria-hidden="true" className="pointer-events-none absolute -left-24 top-1/2 -z-10 h-[340px] w-[340px] -translate-y-1/2 rounded-full opacity-30 blur-[38px]" style={{ background: 'conic-gradient(from 20deg, #008CFF, #FFB347, #FF9B50, #008CFF)' }} /><div className="flex items-start justify-between"><div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#e5f1ff] text-[#008CFF]"><Icon size={21} /></div></div><h3 className="mt-20 text-lg font-bold leading-7 text-[#20233c] sm:mt-24 sm:text-xl">{title}</h3><p className="mt-3 text-sm font-medium leading-6 text-[#666778]">{sub}</p></div>)}</div></div></section>;
+  return <section id="features" className="relative overflow-hidden bg-white px-5 py-20 sm:py-24 lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}><Remoji kind="purple" placement="features" /><div className="relative mx-auto max-w-[1240px]"><div><h2 className="display-font max-w-[600px] text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[1.1] tracking-[-.06em] text-[#191D24]">{t.featureTitle}</h2></div><div className="mt-12 grid gap-4 sm:mt-16 md:grid-cols-3">{features.map(({ icon: Icon, title, sub }) => <div key={title} className="group relative isolate min-h-[300px] overflow-hidden rounded-[2rem] bg-[#fafafd] p-6 transition-transform duration-500 hover:-translate-y-2 sm:p-7"><div aria-hidden="true" className="pointer-events-none absolute -left-24 top-1/2 -z-10 h-[340px] w-[340px] -translate-y-1/2 rounded-full opacity-30 blur-[38px]" style={{ background: 'conic-gradient(from 20deg, #008CFF, #FFB347, #FF9B50, #008CFF)' }} /><div className="flex items-start justify-between"><div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#e5f1ff] text-[#008CFF]"><Icon size={21} /></div></div><h3 className="mt-20 text-lg font-bold leading-7 text-[#20233c] sm:mt-24 sm:text-xl">{title}</h3><p className="mt-3 text-sm font-medium leading-6 text-[#666778]">{sub}</p></div>)}</div></div></section>;
 }
 
 function AgentWalletSection({ lang }: { lang: Lang }) {
   const ar = lang === 'ar';
   return <section id="agent-wallet" className="relative isolate overflow-hidden bg-[#20233c] px-6 py-20 text-white lg:px-8 lg:py-28" dir={ar ? 'rtl' : 'ltr'}>
     <div aria-hidden="true" className="pointer-events-none absolute -right-40 -top-48 -z-10 h-[400px] w-[450px] rounded-full bg-[radial-gradient(ellipse,rgba(255,255,255,.025),transparent_65%)] blur-3xl" />
-    <div className="mx-auto max-w-[1240px]">
+    <div className="relative mx-auto max-w-[1240px]">
       <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#FFB347]/30 bg-[#FFB347]/10 px-3 py-2 text-[10px] font-semibold tracking-[.16em] text-[#FFB347]">
         <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FFB347] opacity-70" /><span className="relative inline-flex h-2 w-2 rounded-full bg-[#FFB347]" /></span>
         {ar ? 'قريبًا' : 'COMING SOON'}
@@ -299,8 +301,9 @@ function AgentWalletSection({ lang }: { lang: Lang }) {
 
 function FAQ({ lang }: { lang: Lang }) {
   const t = copy[lang]; const [open, setOpen] = useState<number | null>(0);
-  return <section id="faq" className="bg-white px-5 py-28 lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-    <div className="mx-auto grid max-w-[1000px] gap-14 md:grid-cols-[.75fr_1.25fr]">
+  return <section id="faq" className="relative overflow-hidden bg-white px-5 py-28 lg:px-8 lg:py-36" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    <Remoji kind="charcoal" placement="faq" />
+    <div className="relative mx-auto grid max-w-[1000px] gap-14 md:grid-cols-[.75fr_1.25fr]">
       <div><h2 className="display-font text-4xl font-semibold leading-[1.1] tracking-[-.06em] text-[#20233c] md:text-5xl">{t.faqTitle}</h2></div>
       <div className="border-t border-[#20233c]/15">
         {faqData[lang].map(([q, a], i) => <div key={q} className="border-b border-[#20233c]/15">
