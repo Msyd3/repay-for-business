@@ -217,7 +217,7 @@ function Hero({ lang, setLang, onDemo }: { lang: Lang; setLang: (lang: Lang) => 
         <h1 ref={titleRef} className="hero-title display-font mx-auto max-w-[650px] text-[clamp(3.5rem,8vw,7.7rem)] font-semibold leading-[.95] tracking-[-.075em] text-white">{t.hero}</h1>
         <div className="reveal reveal-1 mx-auto mt-8 w-full"><FittedDescription className="!mt-0 !text-white">{t.heroSub}</FittedDescription></div>
         <div className="reveal reveal-2 mt-9 flex justify-center">
-          <button type="button" className="inline-flex h-[48px] items-center justify-center rounded-full border border-white/15 bg-[#30344f] px-9 text-base font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#3b405e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{lang === 'ar' ? 'ابدأ الآن' : 'Start now'}</button>
+          <a href="https://wa.me/966545850018" aria-label={lang === 'ar' ? 'تواصل مع RePay على واتساب' : 'Contact RePay on WhatsApp'} className="inline-flex h-[48px] items-center justify-center rounded-full border border-white/15 bg-[#30344f] px-9 text-base font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#3b405e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{lang === 'ar' ? 'ابدأ الآن' : 'Start now'}</a>
         </div>
 
       </div>
