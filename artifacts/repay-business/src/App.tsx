@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import repayLogo from '@assets/image_1788211428352.png';
 import { SiWhatsapp, SiClaude, SiGooglegemini, SiDeepseek, SiPerplexity } from 'react-icons/si';
-import whatsappPhone from '@assets/whatsapp-phone-private.png';
+import whatsappPhone from '@assets/Group 272.png';
 
 const queryClient = new QueryClient();
 
