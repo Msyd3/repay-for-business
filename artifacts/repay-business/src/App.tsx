@@ -11,7 +11,6 @@ import {
   ArrowUpLeft, Banknote, Check, Globe2, MessageCircle, Minus, Plus, ShieldCheck, ShoppingBag, Smartphone, Sparkles, X
 } from 'lucide-react';
 import repayLogo from '@assets/image_1788211428352.png';
-import transferNotification from '@assets/whatsapp-transfer-notification-v2.png';
 import { SiWhatsapp, SiClaude, SiGooglegemini, SiDeepseek, SiPerplexity } from 'react-icons/si';
 import whatsappPhone from '@assets/whatsapp-phone-private.png';
 
@@ -258,10 +257,6 @@ function WhatsAppSection({ lang }: { lang: Lang }) {
     </div>
     <div className="relative mx-auto mt-10 max-w-[760px] sm:mt-12">
       <img src={whatsappPhone} alt={ar ? 'محادثة RePay على واتساب لمراجعة تفاصيل الحوالة وتأكيدها' : 'RePay WhatsApp conversation showing transfer review and confirmation'} className="mx-auto block h-auto w-[72%] max-w-[310px] drop-shadow-[0_24px_35px_rgba(32,35,60,.12)]" />
-      <div className="absolute -right-2 bottom-[4%] z-10 flex w-[88%] max-w-[420px] items-center gap-1 sm:right-0 sm:w-[58%] sm:gap-2">
-        <img src={transferNotification} alt={ar ? 'إشعار RePay: تأكيد طلب تحويل، راجع تفاصيل العملية' : 'RePay notification: review your transfer request'} className="block h-auto min-w-0 flex-1" />
-        <span aria-hidden="true" className="shrink-0 text-2xl drop-shadow-sm sm:text-3xl">🔔</span>
-      </div>
       <div aria-hidden="true" className="absolute right-[3%] top-[12%] grid h-14 w-14 rotate-12 place-items-center rounded-[18px] bg-[#25D366] text-white shadow-[0_12px_28px_rgba(37,211,102,.22)] sm:right-[10%] sm:h-[72px] sm:w-[72px] sm:rounded-[22px]">
         <SiWhatsapp className="h-8 w-8 sm:h-10 sm:w-10" />
       </div>
