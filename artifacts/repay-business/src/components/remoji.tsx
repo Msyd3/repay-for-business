@@ -40,7 +40,7 @@ export function Remoji({ kind, placement }: { kind: keyof typeof characters; pla
   return <div ref={ref} className={`remoji remoji-${kind} remoji-${placement}`} style={style} aria-hidden="true">
     <div className="remoji-float"><div className="remoji-turn">
       <div className="remoji-body" style={{ maskImage: `url(${character.image})`, WebkitMaskImage: `url(${character.image})` }} />
-      <div className="remoji-gaze"><div className="remoji-eyes"><i /><i /></div></div>
+      {kind === 'blue' && <div className="remoji-gaze"><div className="remoji-eyes"><i /><i /></div></div>}
     </div></div>
     <div className="remoji-shadow" />
   </div>;
