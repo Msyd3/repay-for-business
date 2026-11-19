@@ -1,14 +1,14 @@
 import { useEffect, useRef, type CSSProperties } from 'react';
 import blue from '../assets/remoji/blue.png';
-import mint from '../assets/remoji/mint-new.svg';
-import charcoal from '../assets/remoji/charcoal-new.svg';
-import purple from '../assets/remoji/purple.png';
+const mint = 'https://raw.githubusercontent.com/Msyd3/RePay-Wallet/main/public/assets/avatars/remoji-04.svg';
+const purple = 'https://raw.githubusercontent.com/Msyd3/RePay-Wallet/main/public/assets/avatars/remoji-07.svg';
+const charcoal = 'https://raw.githubusercontent.com/Msyd3/RePay-Wallet/main/public/assets/avatars/remoji-10.svg';
 
 const characters = {
   blue: { image: blue, color: '#008CFF', ratio: '750 / 750', x: '67%', y: '38%', eyeWidth: '14%', eyeHeight: '27%', gap: '8%', angle: '-29deg' },
-  mint: { image: mint, color: '#00CEB3', ratio: '1 / 1', x: '51%', y: '45%', eyeWidth: '10.5%', eyeHeight: '24%', gap: '4%', angle: '-2deg' },
-  charcoal: { image: charcoal, color: '#2D323A', ratio: '1 / 1', x: '50%', y: '39%', eyeWidth: '12.5%', eyeHeight: '24%', gap: '9%', angle: '-2deg' },
-  purple: { image: purple, color: '#7130FA', ratio: '850 / 887', x: '51%', y: '35%', eyeWidth: '5.5%', eyeHeight: '12%', gap: '4.5%', angle: '4deg' },
+  mint: { image: mint, color: '#00CEB3', ratio: '1 / 1', x: '51%', y: '54%', eyeWidth: '10.5%', eyeHeight: '24%', gap: '8%', angle: '-2deg' },
+  charcoal: { image: charcoal, color: '#2D323A', ratio: '1 / 1', x: '55%', y: '49%', eyeWidth: '10.5%', eyeHeight: '24%', gap: '8%', angle: '0deg' },
+  purple: { image: purple, color: '#7130FA', ratio: '1 / 1', x: '51%', y: '50%', eyeWidth: '10.5%', eyeHeight: '24%', gap: '7%', angle: '0deg' },
 };
 
 export function Remoji({ kind, placement }: { kind: keyof typeof characters; placement: string }) {
