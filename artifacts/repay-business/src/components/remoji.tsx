@@ -1,13 +1,13 @@
 import { useEffect, useRef, type CSSProperties } from 'react';
 import blue from '../assets/remoji/blue.png';
-import mint from '../assets/remoji/mint.png';
-import charcoal from '../assets/remoji/charcoal.png';
+import mint from '../assets/remoji/mint-new.svg';
+import charcoal from '../assets/remoji/charcoal-new.svg';
 import purple from '../assets/remoji/purple.png';
 
 const characters = {
   blue: { image: blue, color: '#008CFF', ratio: '750 / 750', x: '67%', y: '38%', eyeWidth: '14%', eyeHeight: '27%', gap: '8%', angle: '-29deg' },
-  mint: { image: mint, color: '#00CEB3', ratio: '790 / 818', x: '46%', y: '62%', eyeWidth: '10.5%', eyeHeight: '24%', gap: '4%', angle: '-2deg' },
-  charcoal: { image: charcoal, color: '#2D323A', ratio: '597 / 717', x: '50%', y: '33%', eyeWidth: '12.5%', eyeHeight: '24%', gap: '9%', angle: '-2deg' },
+  mint: { image: mint, color: '#00CEB3', ratio: '1 / 1', x: '51%', y: '45%', eyeWidth: '10.5%', eyeHeight: '24%', gap: '4%', angle: '-2deg' },
+  charcoal: { image: charcoal, color: '#2D323A', ratio: '1 / 1', x: '50%', y: '39%', eyeWidth: '12.5%', eyeHeight: '24%', gap: '9%', angle: '-2deg' },
   purple: { image: purple, color: '#7130FA', ratio: '850 / 887', x: '51%', y: '35%', eyeWidth: '5.5%', eyeHeight: '12%', gap: '4.5%', angle: '4deg' },
 };
 
