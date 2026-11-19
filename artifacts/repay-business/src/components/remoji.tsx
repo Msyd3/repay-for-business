@@ -1,8 +1,8 @@
 import { useEffect, useRef, type CSSProperties } from 'react';
 import blue from '../assets/remoji/blue.png';
-const mint = 'https://raw.githubusercontent.com/Msyd3/RePay-Wallet/main/public/assets/avatars/remoji-04.svg';
-const purple = 'https://raw.githubusercontent.com/Msyd3/RePay-Wallet/main/public/assets/avatars/remoji-07.svg';
-const charcoal = 'https://raw.githubusercontent.com/Msyd3/RePay-Wallet/main/public/assets/avatars/remoji-10.svg';
+import mint from '../assets/remoji/triangle-clean.svg';
+import purple from '../assets/remoji/capsule-clean.svg';
+import charcoal from '../assets/remoji/arch-clean.svg';
 
 const characters = {
   blue: { image: blue, color: '#008CFF', ratio: '750 / 750', x: '67%', y: '38%', eyeWidth: '14%', eyeHeight: '27%', gap: '8%', angle: '-29deg' },
